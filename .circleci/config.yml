@@ -30,7 +30,7 @@ jobs:
     docker:
       - image: mmatyas/pegasus-qt-mingw
     environment:
-      - QT_VERSION: qt5124
+      - QT_VERSION: qt5123
       - QT_TARGET: win32-mingw-static
     steps:
       - checkout
