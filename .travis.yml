@@ -1,7 +1,7 @@
 language: cpp
 
 sudo: required
-dist: xenial
+dist: bionic
 
 branches:
   only:
@@ -9,7 +9,7 @@ branches:
 
 env:
   global:
-    - QT_VER=5.12.3
+    - QT_VER=5.14.1
 
 git:
   depth: 175
@@ -31,6 +31,8 @@ jobs:
   - env: TARGET=rpi1-static
   - env: TARGET=rpi2-static
   - env: TARGET=rpi3-static
+  - env: TARGET=rpi4-static
+    before_script: git apply ./etc/rpi4/kms_launch_fix.diff
 
   # Collect and deploy artifacts
   - stage: release

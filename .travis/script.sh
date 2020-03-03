@@ -19,10 +19,11 @@ else
   QT_HOSTDIR=/opt/qt${QT_VER//./}_${TARGET}_hosttools
 fi
 # Platform settings - Cross prefix
-if [[ $TARGET == rpi1* ]]; then
-  CROSS=/opt/rpi-toolchain/arm-bcm2708/arm-linux-gnueabihf/bin/arm-linux-gnueabihf-
-elif [[ $TARGET == rpi* ]]; then
-  CROSS=/opt/linaro/gcc-linaro-4.9.4-2017.01-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-
+if [[ $TARGET == rpi* ]]; then
+  if [[ $TARGET = rpi4* ]];
+  then CROSS=aarch64-linux-gnu-
+  else CROSS=arm-linux-gnueabihf-
+  fi
 fi
 # Platform settings - install path
 if [[ $TARGET == macos* ]]; then
@@ -56,7 +57,8 @@ ${QT_HOSTDIR}/bin/qmake .. \
   INSTALL_DESKTOPDIR=/usr/share/applications \
   INSTALL_APPSTREAMDIR=/usr/share/metainfo \
   INSTALL_DOCDIR=/usr/share/doc/pegasus-frontend \
-  QMAKE_CXXFLAGS+=-fno-rtti
+  QMAKE_CXXFLAGS+='-fno-rtti -static-libstdc++ -static-libgcc' \
+  QMAKE_LFLAGS+='-fno-rtti -static-libstdc++ -static-libgcc'
 make
 make install INSTALL_ROOT=$PWD/../installoc
 

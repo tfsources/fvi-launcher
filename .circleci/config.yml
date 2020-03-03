@@ -4,7 +4,7 @@ jobs:
     docker:
       - image: mmatyas/pegasus-qt-android
     environment:
-      - QT_VERSION: qt5123
+      - QT_VERSION: qt5141
       - QT_TARGET: android
       - ANDROID_NDK_ROOT: /opt/android-ndk
     steps:
@@ -31,7 +31,7 @@ jobs:
     docker:
       - image: mmatyas/pegasus-qt-mingw
     environment:
-      - QT_VERSION: qt5123
+      - QT_VERSION: qt5141
       - QT_TARGET: win32-mingw-static
       - BUILDOPTS:
           USE_SDL_GAMEPAD=1
@@ -54,8 +54,9 @@ jobs:
     docker:
       - image: mmatyas/pegasus-qt-buster
     environment:
-      - QT_VERSION: qt5124
+      - QT_VERSION: qt5141
       - QT_TARGET: rpi4-static
+      - BUILDOPTS: USE_SDL_GAMEPAD=1
     steps:
       - checkout
       - run: git apply ./etc/rpi4/kms_launch_fix.diff
@@ -73,7 +74,7 @@ jobs:
     docker:
       - image: mmatyas/pegasus-qt_odroid-c1
     environment:
-      - QT_VERSION: qt5125
+      - QT_VERSION: qt5141
       - QT_TARGET: odroid-c1-static
     steps:
       - checkout
@@ -92,7 +93,7 @@ jobs:
     docker:
       - image: mmatyas/pegasus-qt_odroid-c2
     environment:
-      - QT_VERSION: qt5125
+      - QT_VERSION: qt5141
       - QT_TARGET: odroid-c2-static
     steps:
       - checkout
@@ -111,7 +112,7 @@ jobs:
     docker:
       - image: mmatyas/pegasus-qt_odroid-xu3
     environment:
-      - QT_VERSION: qt5125
+      - QT_VERSION: qt5141
       - QT_TARGET: odroid-xu3-static
     steps:
       - checkout
@@ -132,7 +133,6 @@ workflows:
     jobs:
       - android
       - mingw
-      - buster-pi4
       - odroid-c1
       - odroid-c2
       - odroid-xu3
