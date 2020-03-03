@@ -50,6 +50,54 @@ jobs:
           LICENSE.md
       - run: .circleci/release.sh
 
+  buster-pi1:
+    docker:
+      - image: mmatyas/pegasus-qt-buster
+    environment:
+      - QT_VERSION: qt5141
+      - QT_TARGET: rpi1-static
+      - BUILDOPTS: USE_SDL_GAMEPAD=1 QMAKE_LFLAGS+='-static-libstdc++ -static-libgcc'
+    steps:
+      - checkout
+      - run: .circleci/prepare.sh
+      - run: .circleci/build.sh
+      - run: arm-linux-gnueabihf-objdump -p installdir/opt/pegasus-frontend/pegasus-fe | grep 'NEEDED' | sort
+      # Deploy
+      - run: .circleci/zip_linux.sh
+      - run: .circleci/release.sh
+
+  buster-pi2:
+    docker:
+      - image: mmatyas/pegasus-qt-buster
+    environment:
+      - QT_VERSION: qt5141
+      - QT_TARGET: rpi2-static
+      - BUILDOPTS: USE_SDL_GAMEPAD=1 QMAKE_LFLAGS+='-static-libstdc++ -static-libgcc'
+    steps:
+      - checkout
+      - run: .circleci/prepare.sh
+      - run: .circleci/build.sh
+      - run: arm-linux-gnueabihf-objdump -p installdir/opt/pegasus-frontend/pegasus-fe | grep 'NEEDED' | sort
+      # Deploy
+      - run: .circleci/zip_linux.sh
+      - run: .circleci/release.sh
+
+  buster-pi3:
+    docker:
+      - image: mmatyas/pegasus-qt-buster
+    environment:
+      - QT_VERSION: qt5141
+      - QT_TARGET: rpi3-static
+      - BUILDOPTS: USE_SDL_GAMEPAD=1 QMAKE_LFLAGS+='-static-libstdc++ -static-libgcc'
+    steps:
+      - checkout
+      - run: .circleci/prepare.sh
+      - run: .circleci/build.sh
+      - run: arm-linux-gnueabihf-objdump -p installdir/opt/pegasus-frontend/pegasus-fe | grep 'NEEDED' | sort
+      # Deploy
+      - run: .circleci/zip_linux.sh
+      - run: .circleci/release.sh
+
   buster-pi4:
     docker:
       - image: mmatyas/pegasus-qt-buster
@@ -62,12 +110,9 @@ jobs:
       - run: git apply ./etc/rpi4/kms_launch_fix.diff
       - run: .circleci/prepare.sh
       - run: .circleci/build.sh
-      - run: arm-linux-gnueabihf-objdump -p installdir/opt/pegasus-frontend/pegasus-fe | grep 'NEEDED' | sort
+      - run: aarch64-linux-gnu-objdump -p installdir/opt/pegasus-frontend/pegasus-fe | grep 'NEEDED' | sort
       # Deploy
-      - run: zip -j dist/pegasus-fe_$(git describe --always)_rpi4-static.zip
-          installdir/opt/pegasus-frontend/pegasus-fe
-          README.md
-          LICENSE.md
+      - run: .circleci/zip_linux.sh
       - run: .circleci/release.sh
 
   odroid-c1:
@@ -83,10 +128,7 @@ jobs:
       - run: patchelf --replace-needed /opt/odroid-c1_bionic/usr/lib/arm-linux-gnueabihf/libEGL.so libEGL.so installdir/opt/pegasus-frontend/pegasus-fe
       - run: arm-linux-gnueabihf-objdump -p installdir/opt/pegasus-frontend/pegasus-fe | grep 'NEEDED' | sort
       # Deploy
-      - run: zip -j dist/pegasus-fe_$(git describe --always)_${QT_TARGET}.zip
-          installdir/opt/pegasus-frontend/pegasus-fe
-          README.md
-          LICENSE.md
+      - run: .circleci/zip_linux.sh
       - run: .circleci/release.sh
 
   odroid-c2:
@@ -102,10 +144,7 @@ jobs:
       - run: patchelf --replace-needed /opt/odroid-c2_bionic/usr/lib/aarch64-linux-gnu/libEGL.so libEGL.so installdir/opt/pegasus-frontend/pegasus-fe
       - run: aarch64-linux-gnu-objdump -p installdir/opt/pegasus-frontend/pegasus-fe | grep 'NEEDED' | sort
       # Deploy
-      - run: zip -j dist/pegasus-fe_$(git describe --always)_${QT_TARGET}.zip
-          installdir/opt/pegasus-frontend/pegasus-fe
-          README.md
-          LICENSE.md
+      - run: .circleci/zip_linux.sh
       - run: .circleci/release.sh
 
   odroid-xu3:
@@ -121,10 +160,7 @@ jobs:
       - run: patchelf --replace-needed /opt/odroid-5422s_bionic/usr/lib/arm-linux-gnueabihf/libEGL.so libEGL.so installdir/opt/pegasus-frontend/pegasus-fe
       - run: arm-linux-gnueabihf-objdump -p installdir/opt/pegasus-frontend/pegasus-fe | grep 'NEEDED' | sort
       # Deploy
-      - run: zip -j dist/pegasus-fe_$(git describe --always)_${QT_TARGET}.zip
-          installdir/opt/pegasus-frontend/pegasus-fe
-          README.md
-          LICENSE.md
+      - run: .circleci/zip_linux.sh
       - run: .circleci/release.sh
 
 workflows:
@@ -133,6 +169,10 @@ workflows:
     jobs:
       - android
       - mingw
+      - buster-pi1
+      - buster-pi2
+      - buster-pi3
+      - buster-pi4
       - odroid-c1
       - odroid-c2
       - odroid-xu3

@@ -28,11 +28,6 @@ deploy:
 jobs:
   include:
   - env: TARGET=x11-static
-  - env: TARGET=rpi1-static
-  - env: TARGET=rpi2-static
-  - env: TARGET=rpi3-static
-  - env: TARGET=rpi4-static
-    before_script: git apply ./etc/rpi4/kms_launch_fix.diff
 
   # Collect and deploy artifacts
   - stage: release

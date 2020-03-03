@@ -48,7 +48,7 @@ fi
 TOOLS_URL=https://github.com/mmatyas/pegasus-frontend/releases/download/alpha1
 
 pushd /tmp
-  wget ${TOOLS_URL}/qt${QT_VER//./}_${TARGET}.txz
+  wget ${TOOLS_URL}/qt${QT_VER//./}_${TARGET}.tar.xz
 
   if [[ $TARGET = rpi* ]]; then
     if [[ $TARGET = rpi4* ]];
@@ -58,5 +58,5 @@ pushd /tmp
   fi
 
   if [[ $TARGET == macos* ]]; then OUTDIR=/usr/local; else OUTDIR=/opt; fi
-  for f in *.txz *.tar.xz; do sudo tar xJf ${f} -C ${OUTDIR}/; done
+  for f in *.tar.xz; do sudo tar xJf ${f} -C ${OUTDIR}/; done
 popd
