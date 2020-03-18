@@ -4,7 +4,7 @@ jobs:
     docker:
       - image: mmatyas/pegasus-qt-android
     environment:
-      - QT_VERSION: qt5141
+      - QT_VERSION: qt5127
       - QT_TARGET: android
       - ANDROID_NDK_ROOT: /opt/android-ndk
     steps:
@@ -31,7 +31,7 @@ jobs:
     docker:
       - image: mmatyas/pegasus-qt-mingw
     environment:
-      - QT_VERSION: qt5141
+      - QT_VERSION: qt5127
       - QT_TARGET: win32-mingw-static
       - BUILDOPTS:
           USE_SDL_GAMEPAD=1
@@ -40,7 +40,7 @@ jobs:
     steps:
       - checkout
       - run: .circleci/prepare.sh
-      - run: curl "https://www.libsdl.org/release/SDL2-devel-2.0.10-mingw.tar.gz" | tar xzf - -C /opt/
+      - run: curl -L "https://www.libsdl.org/release/SDL2-devel-2.0.10-mingw.tar.gz" | tar xzf - -C /opt/
       - run: .circleci/build.sh
       - run: i686-w64-mingw32-objdump -p installdir/home/build/project/src/app/C:/pegasus-frontend/pegasus-fe.exe | grep 'DLL Name' | sort
       # Deploy
@@ -54,14 +54,14 @@ jobs:
     docker:
       - image: mmatyas/pegasus-qt-buster
     environment:
-      - QT_VERSION: qt5141
+      - QT_VERSION: qt5127
       - QT_TARGET: rpi1-static
       - BUILDOPTS: USE_SDL_GAMEPAD=1 QMAKE_LFLAGS+='-static-libstdc++ -static-libgcc'
     steps:
       - checkout
       - run: .circleci/prepare.sh
       - run: .circleci/build.sh
-      - run: arm-linux-gnueabihf-objdump -p installdir/opt/pegasus-frontend/pegasus-fe | grep 'NEEDED' | sort
+      - run: .circleci/objdump_linux.sh arm-linux-gnueabihf-
       # Deploy
       - run: .circleci/zip_linux.sh
       - run: .circleci/release.sh
@@ -70,14 +70,14 @@ jobs:
     docker:
       - image: mmatyas/pegasus-qt-buster
     environment:
-      - QT_VERSION: qt5141
+      - QT_VERSION: qt5127
       - QT_TARGET: rpi2-static
       - BUILDOPTS: USE_SDL_GAMEPAD=1 QMAKE_LFLAGS+='-static-libstdc++ -static-libgcc'
     steps:
       - checkout
       - run: .circleci/prepare.sh
       - run: .circleci/build.sh
-      - run: arm-linux-gnueabihf-objdump -p installdir/opt/pegasus-frontend/pegasus-fe | grep 'NEEDED' | sort
+      - run: .circleci/objdump_linux.sh arm-linux-gnueabihf-
       # Deploy
       - run: .circleci/zip_linux.sh
       - run: .circleci/release.sh
@@ -86,14 +86,14 @@ jobs:
     docker:
       - image: mmatyas/pegasus-qt-buster
     environment:
-      - QT_VERSION: qt5141
+      - QT_VERSION: qt5127
       - QT_TARGET: rpi3-static
       - BUILDOPTS: USE_SDL_GAMEPAD=1 QMAKE_LFLAGS+='-static-libstdc++ -static-libgcc'
     steps:
       - checkout
       - run: .circleci/prepare.sh
       - run: .circleci/build.sh
-      - run: arm-linux-gnueabihf-objdump -p installdir/opt/pegasus-frontend/pegasus-fe | grep 'NEEDED' | sort
+      - run: .circleci/objdump_linux.sh arm-linux-gnueabihf-
       # Deploy
       - run: .circleci/zip_linux.sh
       - run: .circleci/release.sh
@@ -102,7 +102,7 @@ jobs:
     docker:
       - image: mmatyas/pegasus-qt-buster
     environment:
-      - QT_VERSION: qt5141
+      - QT_VERSION: qt5127
       - QT_TARGET: rpi4-static
       - BUILDOPTS: USE_SDL_GAMEPAD=1
     steps:
@@ -110,7 +110,7 @@ jobs:
       - run: git apply ./etc/rpi4/kms_launch_fix.diff
       - run: .circleci/prepare.sh
       - run: .circleci/build.sh
-      - run: aarch64-linux-gnu-objdump -p installdir/opt/pegasus-frontend/pegasus-fe | grep 'NEEDED' | sort
+      - run: .circleci/objdump_linux.sh arm-linux-gnueabihf-
       # Deploy
       - run: .circleci/zip_linux.sh
       - run: .circleci/release.sh
@@ -119,14 +119,14 @@ jobs:
     docker:
       - image: mmatyas/pegasus-qt_odroid-c1
     environment:
-      - QT_VERSION: qt5141
+      - QT_VERSION: qt5127
       - QT_TARGET: odroid-c1-static
     steps:
       - checkout
       - run: .circleci/prepare.sh
       - run: .circleci/build.sh
       - run: patchelf --replace-needed /opt/odroid-c1_bionic/usr/lib/arm-linux-gnueabihf/libEGL.so libEGL.so installdir/opt/pegasus-frontend/pegasus-fe
-      - run: arm-linux-gnueabihf-objdump -p installdir/opt/pegasus-frontend/pegasus-fe | grep 'NEEDED' | sort
+      - run: .circleci/objdump_linux.sh arm-linux-gnueabihf-
       # Deploy
       - run: .circleci/zip_linux.sh
       - run: .circleci/release.sh
@@ -135,14 +135,14 @@ jobs:
     docker:
       - image: mmatyas/pegasus-qt_odroid-c2
     environment:
-      - QT_VERSION: qt5141
+      - QT_VERSION: qt5127
       - QT_TARGET: odroid-c2-static
     steps:
       - checkout
       - run: .circleci/prepare.sh
       - run: .circleci/build.sh
       - run: patchelf --replace-needed /opt/odroid-c2_bionic/usr/lib/aarch64-linux-gnu/libEGL.so libEGL.so installdir/opt/pegasus-frontend/pegasus-fe
-      - run: aarch64-linux-gnu-objdump -p installdir/opt/pegasus-frontend/pegasus-fe | grep 'NEEDED' | sort
+      - run: .circleci/objdump_linux.sh aarch64-linux-gnu-
       # Deploy
       - run: .circleci/zip_linux.sh
       - run: .circleci/release.sh
@@ -151,14 +151,14 @@ jobs:
     docker:
       - image: mmatyas/pegasus-qt_odroid-xu3
     environment:
-      - QT_VERSION: qt5141
+      - QT_VERSION: qt5127
       - QT_TARGET: odroid-xu3-static
     steps:
       - checkout
       - run: .circleci/prepare.sh
       - run: .circleci/build.sh
       - run: patchelf --replace-needed /opt/odroid-5422s_bionic/usr/lib/arm-linux-gnueabihf/libEGL.so libEGL.so installdir/opt/pegasus-frontend/pegasus-fe
-      - run: arm-linux-gnueabihf-objdump -p installdir/opt/pegasus-frontend/pegasus-fe | grep 'NEEDED' | sort
+      - run: .circleci/objdump_linux.sh arm-linux-gnueabihf-
       # Deploy
       - run: .circleci/zip_linux.sh
       - run: .circleci/release.sh
