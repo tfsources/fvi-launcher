@@ -19,12 +19,6 @@
 
 #include "utils/StdHelpers.h"
 
-#ifdef Q_OS_ANDROID
-#include "platform/AndroidHelpers.h"
-#include <QStandardPaths>
-#endif
-
-
 namespace {
 void remove_if(QFileInfoList& list, const std::function<bool(const QFileInfo&)>& predicate)
 {
@@ -34,10 +28,8 @@ void remove_if(QFileInfoList& list, const std::function<bool(const QFileInfo&)>&
 
 std::vector<QString> drives()
 {
-#if defined(Q_OS_ANDROID)
-    return android::storage_paths();
 
-#elif defined(Q_OS_UNIX)
+#if defined(Q_OS_UNIX)
     // Fast path for *nix
     return { QStringLiteral("/") };
 
@@ -54,12 +46,7 @@ std::vector<QString> drives()
 
 QDir startup_dir()
 {
-#ifdef Q_OS_ANDROID
-    // Avoid pointing to some internal directory, return the primary shared storage
-    return android::primary_storage_path();
-#else
-    return QDir::home();
-#endif
+return QDir::home();
 }
 
 bool is_drive_root(const QString& path, const std::vector<QString>& drives)

@@ -107,7 +107,7 @@ void test_PegasusProvider::simple()
 {
     providers::SearchContext ctx;
 
-    QTest::ignoreMessage(QtInfoMsg, "Metafiles: found `:/simple/metadata.pegasus.txt`");
+    QTest::ignoreMessage(QtInfoMsg, "Metafiles: found `:/simple/metadata.FVI.txt`");
     providers::pegasus::PegasusProvider provider;
     provider.load_with_gamedirs({QStringLiteral(":/simple")});
     provider.findLists(ctx);
@@ -156,13 +156,13 @@ void test_PegasusProvider::with_meta()
 {
     providers::SearchContext ctx;
 
-    QTest::ignoreMessage(QtInfoMsg, "Metafiles: found `:/with_meta/metadata.pegasus.txt`");
-    QTest::ignoreMessage(QtWarningMsg, "Metafiles: `:/with_meta/metadata.pegasus.txt`, line 60: duplicate file `horse.ext`");
-    QTest::ignoreMessage(QtWarningMsg, "Metafiles: `:/with_meta/metadata.pegasus.txt`, line 63: failed to parse rating value");
-    QTest::ignoreMessage(QtWarningMsg, "Metafiles: `:/with_meta/metadata.pegasus.txt`, line 65: incorrect date format, should be YYYY, YYYY-MM or YYYY-MM-DD");
-    QTest::ignoreMessage(QtWarningMsg, "Metafiles: `:/with_meta/metadata.pegasus.txt`, line 66: incorrect date format, should be YYYY, YYYY-MM or YYYY-MM-DD");
-    QTest::ignoreMessage(QtWarningMsg, "Metafiles: `:/with_meta/metadata.pegasus.txt`, line 68: duplicate file `horse.ext`");
-    QTest::ignoreMessage(QtWarningMsg, "Metafiles: `:/with_meta/metadata.pegasus.txt`, line 69: unrecognized game property `asd`, ignored");
+    QTest::ignoreMessage(QtInfoMsg, "Metafiles: found `:/with_meta/metadata.FVI.txt`");
+    QTest::ignoreMessage(QtWarningMsg, "Metafiles: `:/with_meta/metadata.FVI.txt`, line 60: duplicate file `horse.ext`");
+    QTest::ignoreMessage(QtWarningMsg, "Metafiles: `:/with_meta/metadata.FVI.txt`, line 63: failed to parse rating value");
+    QTest::ignoreMessage(QtWarningMsg, "Metafiles: `:/with_meta/metadata.FVI.txt`, line 65: incorrect date format, should be YYYY, YYYY-MM or YYYY-MM-DD");
+    QTest::ignoreMessage(QtWarningMsg, "Metafiles: `:/with_meta/metadata.FVI.txt`, line 66: incorrect date format, should be YYYY, YYYY-MM or YYYY-MM-DD");
+    QTest::ignoreMessage(QtWarningMsg, "Metafiles: `:/with_meta/metadata.FVI.txt`, line 68: duplicate file `horse.ext`");
+    QTest::ignoreMessage(QtWarningMsg, "Metafiles: `:/with_meta/metadata.FVI.txt`, line 69: unrecognized game property `asd`, ignored");
 
     providers::pegasus::PegasusProvider provider;
     provider.load_with_gamedirs({QStringLiteral(":/with_meta")});
@@ -571,7 +571,7 @@ void test_PegasusProvider::separate_media_dirs()
     // NOTE: see issue 407
 
     providers::SearchContext ctx;
-    QTest::ignoreMessage(QtInfoMsg, "Metafiles: found `:/separate_media_dirs/metadata/metadata.pegasus.txt`");
+    QTest::ignoreMessage(QtInfoMsg, "Metafiles: found `:/separate_media_dirs/metadata/metadata.FVI.txt`");
     providers::pegasus::PegasusProvider provider;
     provider.load_with_gamedirs({QStringLiteral(":/separate_media_dirs/metadata")});
 

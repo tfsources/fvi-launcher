@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>gg.forbidden.FVI</id>
+  <name>FVI</name>
+  <metadata_license>Proprietary</metadata_license>
+  <project_license>GPL-3.0+</project_license>
+  <summary>Graphical frontend for launching games</summary>
+  <description>
+    <p>FVI Launcher</p>
+  </description>
+  <content_rating type="oars-1.1" />
+
+  <launchable type="desktop-id">gg.forbidden.FVI.desktop</launchable>
+  <provides>
+    <binary>fvi-lanucher</binary>
+  </provides>
+
+  <screenshots>
+    <screenshot type="default"><image>https://forbidden.gg/images/screens/s0.jpg</image></screenshot>
+    <screenshot><image>https://forbidden.gg/images/screens/s1.jpg</image></screenshot>
+    <screenshot><image>https://forbidden.gg/images/screens/s2.jpg</image></screenshot>
+  </screenshots>
+  <categories>
+    <category>Game</category>
+    <category>Player</category>
+  </categories>
+  <keywords>
+    <keyword>game</keyword>
+    <keyword>player</keyword>
+  </keywords>
+
+  <url type="homepage">https://forbidden.gg/</url>
+  <url type="bugtracker">https://github.com/TeamForbiddenLLC/fvi-launcher/issues</url>
+  <url type="help">https://warforkwiki.com/</url>
+  <url type="donation">https://forbidden.gg</url>
+  <developer_name>Team Forbidden LLC</developer_name>
+  <update_contact>mail_AT_forbidden.gg</update_contact>
+</component>

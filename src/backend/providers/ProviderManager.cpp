@@ -170,7 +170,7 @@ HashMap<QString, model::GameFile*> build_path_map(const QVector<model::Game*>& g
     result.reserve(gamefile_cnt);
     for (const model::Game* const q_game : games) {
         for (model::GameFile* const q_gamefile : q_game->filesConst()) {
-            // NOTE: canonical file path is empty for Android apps
+
             QString path = q_gamefile->data().fileinfo.canonicalFilePath();
             if (Q_LIKELY(!path.isEmpty()))
                 result.emplace(std::move(path), q_gamefile);

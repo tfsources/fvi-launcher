@@ -9,20 +9,13 @@ if [[ $TRAVIS_EVENT_TYPE = pull_request ]]; then
 fi
 
 
-STAGING_REPO=https://github.com/mmatyas/pegasus-deploy-staging.git
+STAGING_REPO=https://github.com/TeamForbiddenLLC/fvi-deploy-staging.git
 GIT_REV=$(git describe --always)
 TARGETS=" \
   x11-static \
-  rpi1-static \
-  rpi2-static \
-  rpi3-static \
-  rpi4-static \
   macos-static \
-  android \
   win32-mingw-static \
-  odroid-c1-static \
-  odroid-c2-static \
-  odroid-xu3-static \
+
 "
 EXPECTED_FILE_CNT=$(echo $TARGETS | wc -w)  # regular releases
 ((EXPECTED_FILE_CNT++))  # + 1 deb
@@ -55,5 +48,5 @@ done
 
 sed -i "s/{{GIT_TAG}}/$(git describe --always --abbrev=0)/g" .travis/bintray_deb.json
 
-wget https://github.com/mmatyas/uploadtool/raw/master/upload.sh
+wget https://github.com/TeamForbiddenLLC/uploadtool/raw/master/upload.sh
 bash ./upload.sh $FILES

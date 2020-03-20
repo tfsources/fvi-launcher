@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=FVI Launcher
+GenericName=FVI
+Comment=FVI Launcher
+Exec=$${INSTALL_BINDIR}/fvi-launcher
+Icon=gg.forbidden.FVI
+Terminal=false
+Categories=Game;Player;
+Keywords=game;player;

@@ -12,7 +12,7 @@ SUBDIRS += src
 OTHER_FILES += .qmake.conf
 
 # FIXME: MAke sure the QT options of Backend inherit to the dependers
-qtHaveModule(testlib):!android {
+qtHaveModule(testlib) {
     SUBDIRS += tests
     tests.depends = src
     tests.CONFIG = no_default_install

@@ -35,8 +35,8 @@ using QSP = QStandardPaths;
 
 void remove_orgname(QString& str)
 {
-    const QRegularExpression replace_regex(QStringLiteral("(/pegasus-frontend){2}$"));
-    str.replace(replace_regex, QStringLiteral("/pegasus-frontend"));
+    const QRegularExpression replace_regex(QStringLiteral("(/fvi-launcher){2}$"));
+    str.replace(replace_regex, QStringLiteral("/fvi-launcher"));
 }
 
 void create_dir_if_not_exists(const QString& dir_path)
@@ -47,15 +47,11 @@ void create_dir_if_not_exists(const QString& dir_path)
 
 QString get_appconfig_dir()
 {
-#ifdef Q_OS_ANDROID
-    const QString dir_path = QSP::writableLocation(QSP::GenericDataLocation)
-                           + QStringLiteral("/pegasus-frontend");
-#else
     QString dir_path = AppSettings::general.portable
         ? QCoreApplication::applicationDirPath() + QStringLiteral("/config")
         : QSP::writableLocation(QSP::AppConfigLocation);
     remove_orgname(dir_path);
-#endif
+
     create_dir_if_not_exists(dir_path);
     return dir_path;
 }
@@ -82,10 +78,10 @@ QString homePath()
         // allow overriding the home directory on Windows:
         // QDir::homePath() checks the env vars last on this platform,
         // but we want it to be the first
-        return env.value("PEGASUS_HOME", env.value("HOME", QDir::homePath()));
+        return env.value("FVI_HOME", env.value("HOME", QDir::homePath()));
 #else
         // on other platforms, QDir::homePath() returns $HOME first
-        return env.value(QStringLiteral("PEGASUS_HOME"), QDir::homePath());
+        return env.value(QStringLiteral("FVI_HOME"), QDir::homePath());
 #endif
     }();
     return home_path;
@@ -105,12 +101,11 @@ QStringList configDirs()
 
         if (!AppSettings::general.portable) {
             paths << writableConfigDir();
-            paths << QSP::standardLocations(QSP::AppConfigLocation);
-            paths << QSP::standardLocations(QSP::AppDataLocation);
+            paths << QSP::standardLocations(QSP::DocumentsLocation);
 
             // do not add the organization name to the search path
-            const QRegularExpression regex(QStringLiteral("(/pegasus-frontend){2}$"));
-            paths.replaceInStrings(regex, QStringLiteral("/pegasus-frontend"));
+            const QRegularExpression regex(QStringLiteral("(/warfork/fvi){2}$"));
+            paths.replaceInStrings(regex, QStringLiteral("/warfork/fvi"));
         }
 
         paths.removeDuplicates();

@@ -66,12 +66,12 @@ MenuScreen {
                     text: qsTr("About") + api.tr
                 }
                 Text {
-                    property string programInfo: qsTr("Pegasus Frontend, version <tt>%1</tt> (%2)")
+                    property string programInfo: qsTr("FVI Launcher, version <tt>%1</tt> (%2)")
                         .arg(api.internal.meta.gitRevision)
                         .arg(api.internal.meta.gitDate)
                         + api.tr
 
-                    text: programInfo + "<br>Copyright \u00a9 2017-2018 Mátyás Mustoha"
+                    text: programInfo + "<br>Copyright \u00a9 2020 Team Forbidden LLC."
                     color: "#eee"
                     font.pixelSize: bodyFontSize
                     font.family: globalFonts.sans
@@ -97,7 +97,7 @@ MenuScreen {
                     padding: bodyFontSize
                 }
                 QrBox {
-                    url: "pegasus-frontend.org/docs"
+                    url: "warforkwiki.com"
                     image: "qrc:/frontend/assets/qr-docs.png"
                     anchors.horizontalCenter: parent.horizontalCenter
                 }
@@ -157,7 +157,7 @@ MenuScreen {
                     Text {
                         text: "You should have received a copy of the full license along with this "
                             + "program. If not, you can also find it on the following address: "
-                            + "<tt>http://pegasus-frontend.org/license</tt>."
+                            + "<tt>https://forbidden.gg/license</tt>."
                         color: licenses.textColor
                         lineHeight: licenses.textLineHeight
                         font.pixelSize: licenses.textSize
@@ -192,7 +192,7 @@ MenuScreen {
                     }
                 }
                 Row {
-                    id: roboto
+                    id: noto
                     width: parent.width
                     leftPadding: qt.leftPadding
                     topPadding: qt.topPadding
@@ -213,7 +213,7 @@ MenuScreen {
                         }
                     }
                     Text {
-                        text: "Uses Roboto fonts. Copyright \u00a9 Google Inc. All rights reserved."
+                        text: "Uses Noto fonts. Copyright \u00a9 Google Inc. All rights reserved."
                         color: licenses.textColor
                         font.pixelSize: licenses.textSize
                         font.family: globalFonts.sans

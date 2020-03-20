@@ -695,7 +695,7 @@ please read <http://www.gnu.org/philosophy/why-not-lgpl.html>.
 As per Section 7 of the GNU General Public License version 3, the
 following additional terms are in effect.
 
-Except as expressly provided herein, no trademark rights under trademark law are granted with this license. You are granted a limited, non-exclusive right to use the marks Pegasus Frontend, Pegasus Launcher, or Pegasus (as referring to the Program), and the logos of the Program, in connection with unmodified copies of the Program, and the copyright notices required by section 5.d of this License.
+Except as expressly provided herein, no trademark rights under trademark law are granted with this license.
 
 If you are taking advantage of the open-source nature of the Program and make significant functional changes, you may not use the aforementioned marks and logos, or confusingly similar variations of them, as the title or the logo of the resulting work, respectively, or redistribute the resulting work as such, without prior written consent of the original licensor of the Program.
 

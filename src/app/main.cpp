@@ -43,10 +43,10 @@ int main(int argc, char *argv[])
     QSettings::setDefaultFormat(QSettings::IniFormat);
 
     QGuiApplication app(argc, argv);
-    app.setApplicationName(QStringLiteral("pegasus-frontend"));
+    app.setApplicationName(QStringLiteral("fvi-launcher"));
     app.setApplicationVersion(QStringLiteral(GIT_REVISION));
-    app.setOrganizationName(QStringLiteral("pegasus-frontend"));
-    app.setOrganizationDomain(QStringLiteral("pegasus-frontend.org"));
+    app.setOrganizationName(QStringLiteral("fvi-launcher"));
+    app.setOrganizationDomain(QStringLiteral("forbidden.gg"));
     app.setWindowIcon(QIcon(QStringLiteral(":/icon.png")));
 
     handle_cli_args(app);
@@ -64,7 +64,7 @@ void handle_cli_args(QGuiApplication& app)
 {
     QCommandLineParser argparser;
     argparser.setApplicationDescription(tr_log(
-        "\nPegasus is a graphical frontend for browsing your game library (especially\n"
+        "\nFVI is a graphical frontend for browsing your game library (especially\n"
         "retro games) and launching them from one place. It's focusing on customization,\n"
         "cross platform support (including embedded devices) and high performance."));
 

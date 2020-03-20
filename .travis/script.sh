@@ -18,18 +18,13 @@ elif [[ $TARGET == x11* ]]; then
 else
   QT_HOSTDIR=/opt/qt${QT_VER//./}_${TARGET}_hosttools
 fi
-# Platform settings - Cross prefix
-if [[ $TARGET == rpi1* ]]; then
-  CROSS=/opt/rpi-toolchain/arm-bcm2708/arm-linux-gnueabihf/bin/arm-linux-gnueabihf-
-elif [[ $TARGET == rpi* ]]; then
-  CROSS=/opt/linaro/gcc-linaro-4.9.4-2017.01-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-
-fi
+
 # Platform settings - install path
 if [[ $TARGET == macos* ]]; then
-  INSTALLED_RUNNABLE=usr/local/pegasus-frontend/Pegasus.app
-  INSTALLED_BINARY=${INSTALLED_RUNNABLE}/Contents/MacOS/pegasus-fe
+  INSTALLED_RUNNABLE=usr/local/fvi-launcher/FVI.app
+  INSTALLED_BINARY=${INSTALLED_RUNNABLE}/Contents/MacOS/fvi-launcher
 else
-  INSTALLED_RUNNABLE=usr/bin/pegasus-fe
+  INSTALLED_RUNNABLE=usr/bin/fvi-launcher
   INSTALLED_BINARY=${INSTALLED_RUNNABLE}
 fi
 
@@ -55,7 +50,7 @@ ${QT_HOSTDIR}/bin/qmake .. \
   INSTALL_ICONDIR=/usr/share/icons/hicolor/128x128/apps \
   INSTALL_DESKTOPDIR=/usr/share/applications \
   INSTALL_APPSTREAMDIR=/usr/share/metainfo \
-  INSTALL_DOCDIR=/usr/share/doc/pegasus-frontend \
+  INSTALL_DOCDIR=/usr/share/doc/fvi-launcher \
   QMAKE_CXXFLAGS+=-fno-rtti
 make
 make install INSTALL_ROOT=$PWD/../installoc
@@ -70,7 +65,7 @@ echo "${BINHEAD}" | grep NEEDED | sort
 
 # Create artifacts
 mkdir dist && pushd dist
-  zip -j pegasus-fe_$(git describe --always)_${TARGET}.zip \
+  zip -j fvi-launcher_$(git describe --always)_${TARGET}.zip \
     "../installoc/${INSTALLED_RUNNABLE}" \
     ../README.md \
     ../LICENSE.md

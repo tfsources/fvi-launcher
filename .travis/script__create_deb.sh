@@ -18,15 +18,15 @@ else
 fi
 
 fpm -s dir -t deb \
-  --name 'pegasus-frontend' \
+  --name 'fvi-launcher' \
   --version ${DEB_VER} \
-  --license 'GPLv3+, CC-BY-NC-SA' \
-  --maintainer 'Mátyás Mustoha' \
-  --vendor 'pegasus-frontend.org' \
-  --url 'http://pegasus-frontend.org' \
+  --license 'GPLv3+, Proprietary' \
+  --maintainer 'Team Forbidden LLC.' \
+  --vendor 'forbidden.gg' \
+  --url 'https://forbidden.gg' \
   --category games \
   --deb-compression xz \
-  --description "$(printf 'Cross platform graphical frontend for launching emulators\nPegasus is an experimental emulator frontend, focusing on customizability,\ncross platform support (including embedded) and high performance.')" \
+  --description "$(printf 'FVI Launcher')" \
   -d 'fontconfig' \
   -d 'gstreamer1.0-plugins-good' \
   -d 'policykit-1' \

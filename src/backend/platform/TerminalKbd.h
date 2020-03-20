@@ -29,7 +29,7 @@ public:
     static void disable();
 
 private:
-#if defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#if defined(Q_OS_LINUX)
     static int m_tty;
     static int m_old_kbd_mode;
 #endif

@@ -43,8 +43,8 @@ QString find_metafile_in(const QString& dir_path)
 
     // TODO: move metadata first after some transition period
     const QString possible_paths[] {
-        dir_path + QStringLiteral("/collections.pegasus.txt"),
-        dir_path + QStringLiteral("/metadata.pegasus.txt"),
+        dir_path + QStringLiteral("/collections.FVI.txt"),
+        dir_path + QStringLiteral("/metadata.FVI.txt"),
         dir_path + QStringLiteral("/collections.txt"),
         dir_path + QStringLiteral("/metadata.txt"),
     };
@@ -66,7 +66,7 @@ std::vector<QString> find_global_metafiles()
 {
     constexpr auto dir_filters = QDir::Files | QDir::Readable | QDir::NoDotAndDotDot;
     constexpr auto dir_flags = QDirIterator::FollowSymlinks;
-    const QRegularExpression rx_path(QStringLiteral("^(.+\\.)?metadata(\\.pegasus)?\\.txt$"));
+    const QRegularExpression rx_path(QStringLiteral("^(.+\\.)?metadata(\\.FVI)?\\.txt$"));
 
     std::vector<QString> result;
 

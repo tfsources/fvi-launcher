@@ -25,7 +25,7 @@ Window {
     visible: true
     width: 1280
     height: 720
-    title: "Pegasus"
+    title: "FVI"
     color: "#000"
 
     visibility: api.internal.settings.fullscreen
@@ -36,8 +36,8 @@ Window {
         api.internal.system.quit();
     }
 
-    FontLoader { id: sansFont; source: "/fonts/Roboto.ttf" }
-    FontLoader { id: condensedFont; source: "/fonts/RobotoCondensed.ttf" }
+    FontLoader { id: sansFont; source: "/fonts/NotoSans-Regular.ttf" }
+    FontLoader { id: condensedFont; source: "/fonts/NotoSans-CondensedLight.ttf" }
 
 
     // a globally avalable utility object

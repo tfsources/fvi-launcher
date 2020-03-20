@@ -24,27 +24,6 @@
 #include "providers/pegasus_favorites/Favorites.h"
 #include "providers/pegasus_metadata/PegasusProvider.h"
 #include "providers/pegasus_playtime/PlaytimeStats.h"
-#ifdef WITH_COMPAT_ES2
-  #include "providers/es2/Es2Provider.h"
-#endif
-#ifdef WITH_COMPAT_STEAM
-  #include "providers/steam/SteamProvider.h"
-#endif
-#ifdef WITH_COMPAT_GOG
-  #include "providers/gog/GogProvider.h"
-#endif
-#ifdef WITH_COMPAT_ANDROIDAPPS
-  #include "providers/android_apps/AndroidAppsProvider.h"
-#endif
-#ifdef WITH_COMPAT_SKRAPER
-  #include "providers/skraper/SkraperAssetsProvider.h"
-#endif
-#ifdef WITH_COMPAT_LAUNCHBOX
-  #include "providers/launchbox/LaunchBoxProvider.h"
-#endif
-#ifdef WITH_COMPAT_LUTRIS
-  #include "providers/lutris/LutrisProvider.h"
-#endif
 
 #include <QFile>
 
@@ -65,7 +44,7 @@ HashMap<KeyEvent, QVector<QKeySequence>, EnumHash> default_keymap()
         { KeyEvent::PREV_PAGE, { Qt::Key_Q, Qt::Key_A, GamepadKeyId::L1 }},
         { KeyEvent::PAGE_UP, { Qt::Key_PageUp, GamepadKeyId::L2 }},
         { KeyEvent::PAGE_DOWN, { Qt::Key_PageDown, GamepadKeyId::R2 }},
-        { KeyEvent::MAIN_MENU, { Qt::Key_F1, GamepadKeyId::START }},
+        { KeyEvent::MAIN_MENU, { Qt::Key_Tab, GamepadKeyId::START }},
     };
 }
 
@@ -96,27 +75,7 @@ std::vector<std::unique_ptr<providers::Provider>> create_providers()
         MKENTRY(pegasus::PegasusProvider)
         MKENTRY(favorites::Favorites)
         MKENTRY(playtime::PlaytimeStats)
-#ifdef WITH_COMPAT_STEAM
-        MKENTRY(steam::SteamProvider)
-#endif
-#ifdef WITH_COMPAT_GOG
-        MKENTRY(gog::GogProvider)
-#endif
-#ifdef WITH_COMPAT_ES2
-        MKENTRY(es2::Es2Provider)
-#endif
-#ifdef WITH_COMPAT_ANDROIDAPPS
-        MKENTRY(android::AndroidAppsProvider)
-#endif
-#ifdef WITH_COMPAT_SKRAPER
-        MKENTRY(skraper::SkraperAssetsProvider)
-#endif
-#ifdef WITH_COMPAT_LAUNCHBOX
-        MKENTRY(launchbox::LaunchboxProvider)
-#endif
-#ifdef WITH_COMPAT_LUTRIS
-        MKENTRY(lutris::LutrisProvider)
-#endif
+
     out.shrink_to_fit();
     return out;
 
@@ -130,10 +89,10 @@ namespace appsettings {
 
 General::General()
     : DEFAULT_LOCALE(QStringLiteral("en"))
-    , DEFAULT_THEME(QStringLiteral(":/themes/pegasus-theme-grid/"))
+    , DEFAULT_THEME(QStringLiteral(":/themes/fvi/"))
     , portable(false)
     , silent(false)
-    , fullscreen(true)
+    , fullscreen(false)
     , mouse_support(true)
     , locale(DEFAULT_LOCALE)
     , theme(DEFAULT_THEME)

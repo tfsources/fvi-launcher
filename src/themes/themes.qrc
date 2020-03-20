@@ -1,0 +1,46 @@
+<RCC>
+    <qresource prefix="/themes">
+        <file>fvi/theme.cfg</file>
+        <file>fvi/theme.qml</file>
+        <file>fvi/utils.js</file>
+        <file>fvi/assets/audio/menuintrosound.wav</file>
+        <file>fvi/assets/audio/navsound.wav</file>
+        <file>fvi/assets/audio/togglesound.wav</file>
+        <file>fvi/assets/images/scanlines_v3.png</file>
+        <file>fvi/assets/images/favebg.svg</file>
+        <file>fvi/assets/images/defaultbg.jpg</file>
+        <file>fvi/assets/images/loading.svg</file>
+        <file>fvi/assets/images/wreath-gold.svg</file>
+        <file>fvi/assets/images/clock.svg</file>
+        <file>fvi/assets/images/gamepad.svg</file>
+        <file>fvi/assets/images/logos/fvi.svg</file>
+        <file>fvi/assets/images/loadingspinner.png</file>
+        <file>fvi/assets/images/menuicon.svg</file>
+        <file>fvi/assets/images/loading.png</file>
+        <file>fvi/assets/images/scanlines-vert.png</file>
+        <file>fvi/assets/images/metabg.svg</file>
+        <file>fvi/assets/images/star.svg</file>
+        <file>fvi/assets/images/loadingspinner.svg</file>
+        <file>fvi/assets/images/wreath.svg</file>
+        <file>fvi/fonts/NotoSans-Black.ttf</file>
+        <file>fvi/fonts/NotoSans-Condensed.ttf</file>
+        <file>fvi/fonts/NotoSans-Medium.ttf</file>
+        <file>fvi/source/OrganizeScrapedFiles.ahk</file>
+        <file>fvi/layer_help/ControllerHelp.qml</file>
+        <file>fvi/layer_help/ControllerHelpButton.qml</file>
+        <file>fvi/layer_details/GamePanelButton2.qml</file>
+        <file>fvi/layer_details/GameDetails2.qml</file>
+        <file>fvi/layer_details/GameDetails.qml</file>
+        <file>fvi/layer_details/GamePanelButton.qml</file>
+        <file>fvi/layer_grid/GameGridSwitcher.qml</file>
+        <file>fvi/layer_grid/BackgroundImage.qml</file>
+        <file>fvi/layer_grid/GameGridDetails.qml</file>
+        <file>fvi/layer_grid/GamePlatformHome.qml</file>
+        <file>fvi/layer_grid/GameGrid.qml</file>
+        <file>fvi/layer_grid/GameGridItem.qml</file>
+        <file>fvi/layer_grid/GameGridMetaBox.qml</file>
+        <file>fvi/layer_menu/PlatformMenu.qml</file>
+        <file>fvi/layer_menu/Settings.qml</file>
+        <file>fvi/README.MD</file>  
+    </qresource>
+</RCC>

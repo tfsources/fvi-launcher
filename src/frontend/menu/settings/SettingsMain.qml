@@ -125,21 +125,6 @@ FocusScope {
                     KeyNavigation.down: optTheme
                 }
 
-                MultivalueOption {
-                    id: optTheme
-
-                    label: qsTr("Theme") + api.tr
-                    value: api.internal.settings.themes.currentName
-
-                    onActivate: {
-                        focus = true;
-                        themeBox.focus = true;
-                    }
-                    onFocusChanged: container.onFocus(this)
-
-                    KeyNavigation.down: optFullscreen
-                }
-
                 ToggleOption {
                     id: optFullscreen
 
@@ -184,48 +169,6 @@ FocusScope {
                     onFocusChanged: container.onFocus(this)
 
                     KeyNavigation.down: optHideMouse
-                }
-
-                ToggleOption {
-                    id: optHideMouse
-
-                    label: qsTr("Enable mouse support") + api.tr
-                    note: qsTr("By default the cursor is visible if there are any pointer devices connected.") + api.tr
-
-                    checked: api.internal.settings.mouseSupport
-                    onCheckedChanged: {
-                        focus = true;
-                        api.internal.settings.mouseSupport = checked;
-                    }
-                    onFocusChanged: container.onFocus(this)
-
-                    KeyNavigation.down: optEditGameDirs
-                }
-
-                SectionTitle {
-                    text: qsTr("Gaming") + api.tr
-                }
-                SimpleButton {
-                    id: optEditGameDirs
-
-                    label: qsTr("Set game directories...") + api.tr
-                    onActivate: {
-                        focus = true;
-                        root.openGameDirSettings();
-                    }
-                    onFocusChanged: container.onFocus(this)
-
-                    KeyNavigation.down: optEditProviders
-                }
-                SimpleButton {
-                    id: optEditProviders
-
-                    label: qsTr("Enable/disable data sources...") + api.tr
-                    onActivate: {
-                        focus = true;
-                        root.openProviderSettings();
-                    }
-                    onFocusChanged: container.onFocus(this)
                 }
 
                 Item {

@@ -36,7 +36,7 @@ lcov --compat-libtool -r coverage.total \
   'src/app/*' \
   'tests/*' \
   'thirdparty/*' \
-  '*/pegasus-fe_plugin_import.cpp' \
-  '*/pegasus-fe_qml_plugin_import.cpp' \
+  '*/fvi-launcher_plugin_import.cpp' \
+  '*/fvi-launcher_qml_plugin_import.cpp' \
   '*/qmlcache_loader.cpp' \
   -o coverage.clean

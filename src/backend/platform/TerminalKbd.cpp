@@ -17,7 +17,7 @@
 
 #include "TerminalKbd.h"
 
-#if defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#if defined(Q_OS_LINUX)
 
 #include <unistd.h>
 #include <linux/kd.h>

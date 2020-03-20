@@ -23,7 +23,7 @@ class QStringList;
 
 namespace paths {
 
-/// Returns $PEGASUS_HOME if defined, or $HOME if defined,
+/// Returns $FVI_HOME if defined, or $HOME if defined,
 /// otherwise QDir::homePath().
 QString homePath();
 

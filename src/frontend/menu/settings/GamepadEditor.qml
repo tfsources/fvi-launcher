@@ -139,7 +139,7 @@ FocusScope {
 
     Rectangle {
         width: parent.width
-        color: "#222"
+        color: "#00111C"
         anchors {
             top: deviceSelect.bottom
             bottom: parent.bottom
@@ -711,7 +711,7 @@ FocusScope {
 
         Text {
             id: label
-            text: qsTr("hold down to quit") + api.tr
+            text: "/ " + api.keys.cancel[0].name() + " - " + qsTr("hold down to quit") + api.tr
             verticalAlignment: Text.AlignTop
 
             color: escapeStartTime ? "#eee" : "#777"

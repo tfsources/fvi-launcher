@@ -20,12 +20,12 @@ import QtQuick 2.0
 
 Error {
     title: qsTr("No games found :(") + api.tr
-    details: qsTr("Pegasus couldn't find any games on your device. If you have not"
-                + " set up Pegasus yet, you can find the documentation here: <i>%1</i>."
+    details: qsTr("FVI couldn't find any games on your device. If you have not"
+                + " set up FVI yet, you can find the documentation here: <i>%1</i>."
                 + "<br>"
                 + "If you still see this message, make sure your config files are readable,"
                 + " exist in one of the expected locations and are in the expected format.")
-            .arg("http://pegasus-frontend.org/docs")
+            .arg("https://warforkwiki.com")
             + api.tr
     instruction: qsTr("Please see the log file for more details.") + api.tr
     logInfo: qsTr("You can find it here:<pre>%1</pre>")

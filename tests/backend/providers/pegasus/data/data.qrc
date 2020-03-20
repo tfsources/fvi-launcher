@@ -10,7 +10,7 @@
         <file>simple/notgame.unk</file>
         <file>simple/media/game_ignored.ext</file>
         <file>simple/subdir/game_in_subdir.EXT</file>
-        <file>simple/metadata.pegasus.txt</file>
+        <file>simple/metadata.FVI.txt</file>
         <file>simple/favgame1.ext</file>
         <file>simple/favgame2.ext</file>
         <file>simple/game with spaces.ext</file>
@@ -21,7 +21,7 @@
         <file>with_meta/pre.ext</file>
         <file>with_meta/media/game_ignored.ext</file>
         <file>with_meta/subdir/game_in_subdir.ext</file>
-        <file>with_meta/metadata.pegasus.txt</file>
+        <file>with_meta/metadata.FVI.txt</file>
         <file>custom_assets/metadata.txt</file>
         <file>custom_assets/mygame1.ext</file>
         <file>custom_assets/media/mygame1-boxFront.png</file>
@@ -63,7 +63,7 @@
         <file>separate_media_dirs/games-a/media/Game 1/box_front.png</file>
         <file>separate_media_dirs/games-b/game2.ext</file>
         <file>separate_media_dirs/games-b/media/Game 2/box_front.png</file>
-        <file>separate_media_dirs/metadata/metadata.pegasus.txt</file>
+        <file>separate_media_dirs/metadata/metadata.FVI.txt</file>
         <file>relative_files/a/game_a.ext</file>
         <file>relative_files/coll/metadata.txt</file>
         <file>relative_files/coll/game_here.ext</file>

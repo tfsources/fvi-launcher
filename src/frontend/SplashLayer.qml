@@ -20,7 +20,7 @@ import QtQuick 2.0
 
 Rectangle {
     id: root
-    color: "#222"
+    color: "#00111C"
     anchors.fill: parent
 
     property real progress: api.internal.meta.loadingProgress
@@ -31,7 +31,7 @@ Rectangle {
 
     Image {
         id: logo
-        source: "assets/logo.png"
+        source: "assets/logo.svg"
         width: Math.min(parent.width, parent.height)
         fillMode: Image.PreserveAspectFit
         verticalAlignment: Image.AlignBottom
@@ -39,7 +39,7 @@ Rectangle {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: parent.top
         anchors.bottom: parent.verticalCenter
-        anchors.bottomMargin: vpx(-45)
+        anchors.bottomMargin: vpx(-10)
     }
 
     Rectangle {
@@ -50,7 +50,7 @@ Rectangle {
         width: logo.width * 0.94
         height: vpx(30)
         radius: vpx(10)
-        color: "#181818"
+        color: "#00111C"
 
         anchors.top: logo.bottom
         anchors.topMargin: height * 1.0
@@ -78,37 +78,7 @@ Rectangle {
             }
 
 
-            Image {
-                source: "assets/pbar-right.png"
-                anchors.top: parent.top
-                anchors.bottom: parent.bottom
-                anchors.right: parent.right
-                fillMode: Image.PreserveAspectFit
-            }
-        }
 
-        Image {
-            source: "assets/pbar-left.png"
-            anchors.top: parent.top
-            anchors.bottom: parent.bottom
-            anchors.left: parent.left
-            fillMode: Image.PreserveAspectFit
-        }
-        Image {
-            source: "assets/pbar-right.png"
-            anchors.top: parent.top
-            anchors.bottom: parent.bottom
-            anchors.right: parent.right
-            fillMode: Image.PreserveAspectFit
-        }
-        Rectangle {
-            // inner border above the image
-            anchors.fill: parent
-            color: "transparent"
-
-            radius: vpx(10)
-            border.width: parent.padding
-            border.color: parent.color
         }
     }
 

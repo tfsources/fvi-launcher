@@ -1,8 +1,8 @@
 {
     "package": {
-        "subject": "mmatyas",
+        "subject": "TeamForbiddenLLC",
         "repo": "deb",
-        "name": "pegasus-frontend"
+        "name": "fvi-launcher"
     },
     "version": {
         "name": "{{GIT_TAG}}",
@@ -10,7 +10,7 @@
     },
     "files": [{
         "includePattern": "dist-x11-static/(.*\\.deb)",
-        "uploadPattern": "pool/main/p/pegasus-frontend/$1",
+        "uploadPattern": "pool/main/f/fvi-launcher/$1",
         "matrixParams": {
             "deb_distribution": "testing",
             "deb_component": "main",

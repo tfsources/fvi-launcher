@@ -2,7 +2,6 @@ TEMPLATE = lib
 
 QT += qml quick sql
 CONFIG += c++11 staticlib warn_on exceptions_off rtti_off
-android: QT += androidextras
 
 !isEmpty(USE_SDL_GAMEPAD): include($${TOP_SRCDIR}/src/link_to_sdl.pri)
 else: QT += gamepad

@@ -30,26 +30,12 @@ if [[ $TARGET = x11* ]]; then
   gem install fpm -v 1.10.2
 fi
 
-if [[ -n ${RUN_COV-} ]]; then
-  sudo apt-get install -y lcov
-  gem install coveralls-lcov
-fi
-
-
 # Install the toolchain
 
-TOOLS_URL=https://github.com/mmatyas/pegasus-frontend/releases/download/alpha1
+TOOLS_URL=https://github.com/TeamForbiddenLLC/fvi-toolchain/raw/master
 
 pushd /tmp
   wget ${TOOLS_URL}/qt${QT_VER//./}_${TARGET}.txz
-
-  if [[ $TARGET = rpi* ]]; then
-    if [[ $TARGET = rpi1* ]];
-    then wget ${TOOLS_URL}/rpi-toolchain-official.txz
-    else wget ${TOOLS_URL}/rpi-toolchain-linaro.txz
-    fi
-    wget ${TOOLS_URL}/rpi-sysroot_brcm493fix.txz
-  fi
 
   if [[ $TARGET == macos* ]]; then OUTDIR=/usr/local; else OUTDIR=/opt; fi
   for f in *.txz; do sudo tar xJf ${f} -C ${OUTDIR}/; done
