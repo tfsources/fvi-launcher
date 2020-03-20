@@ -32,7 +32,7 @@ fi
 
 # Install the toolchain
 
-TOOLS_URL=https://github.com/TeamForbiddenLLC/fvi-toolchain/raw/master
+TOOLS_URL=https://github.com/Warfork/fvi-toolchain/raw/master
 
 pushd /tmp
   wget ${TOOLS_URL}/qt${QT_VER//./}_${TARGET}.txz

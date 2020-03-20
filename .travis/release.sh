@@ -9,7 +9,7 @@ if [[ $TRAVIS_EVENT_TYPE = pull_request ]]; then
 fi
 
 
-STAGING_REPO=https://github.com/TeamForbiddenLLC/fvi-deploy-staging.git
+STAGING_REPO=https://github.com/Warfork/fvi-deploy-staging.git
 GIT_REV=$(git describe --always)
 TARGETS=" \
   x11-static \
@@ -48,5 +48,5 @@ done
 
 sed -i "s/{{GIT_TAG}}/$(git describe --always --abbrev=0)/g" .travis/bintray_deb.json
 
-wget https://github.com/TeamForbiddenLLC/uploadtool/raw/master/upload.sh
+wget https://github.com/Warfork/uploadtool/raw/master/upload.sh
 bash ./upload.sh $FILES
