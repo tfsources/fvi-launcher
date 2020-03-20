@@ -1,0 +1,30 @@
+version: 2
+jobs:
+  mingw:
+    docker:
+      - image: mmatyas/pegasus-qt-mingw
+    environment:
+      - QT_VERSION: qt5123
+      - QT_TARGET: win32-mingw-static
+      - BUILDOPTS:
+          USE_SDL_GAMEPAD=1
+          SDL_LIBS='-L/opt/SDL2-2.0.10/i686-w64-mingw32/lib/ -lSDL2 -Wl,--no-undefined -lm -ldinput8 -ldxguid -ldxerr8 -lsetupapi'
+          SDL_INCLUDES=/opt/SDL2-2.0.10/i686-w64-mingw32/include/SDL2/
+    steps:
+      - checkout
+      - run: .circleci/prepare.sh
+      - run: curl "https://www.libsdl.org/release/SDL2-devel-2.0.10-mingw.tar.gz" | tar xzf - -C /opt/
+      - run: .circleci/build.sh
+      - run: i686-w64-mingw32-objdump -p installdir/home/build/project/src/app/C:/fvi-launcher/fvi-launcher.exe | grep 'DLL Name' | sort
+      # Deploy
+      - run: zip -j dist/fvi-launcher_$(git describe --always)_win-mingw-static.zip
+          installdir/home/build/project/src/app/C:/fvi-launcher/fvi-launcher.exe
+          README.md
+          LICENSE.md
+      - run: .circleci/release.sh
+
+workflows:
+  version: 2
+  all:
+    jobs:
+      - mingw
