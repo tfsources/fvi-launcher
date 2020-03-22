@@ -14,21 +14,16 @@ branches:
 
 environment:
   matrix:
-    - flavor: mingw
-      QTDIR: C:\Qt\5.12\mingw73_32
-      MAKE: mingw32-make
-
     - flavor: msvc
-      QTDIR: C:\Qt\5.12\msvc2017_64
+      QTDIR: C:\Qt\5.12\msvc2017
       MAKE: "nmake /NOLOGO"
 
 init:
-  - if %flavor%==mingw set PATH=C:\Qt\Tools\mingw530_32\bin;%PATH%
   - set PATH=%QTDIR%\bin;%PATH%
   - set FVI_HOME=C:\hello\world
 
 before_build:
-  - call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat"
+  - call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars32.bat" x86
   - git submodule update --init
 
 build_script:
