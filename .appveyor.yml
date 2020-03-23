@@ -7,6 +7,7 @@ os: Visual Studio 2017
 
 platform:
   - x86
+  - x64
 
 branches:
   only:
@@ -23,7 +24,8 @@ init:
   - set FVI_HOME=C:\hello\world
 
 before_build:
-  - call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars32.bat" x86
+  - if %platform%==x86 call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars32.bat" x86
+  - if %platform%==x64 call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat"
   - git submodule update --init
 
 build_script:
@@ -49,7 +51,7 @@ build_script:
   - copy ..\LICENSE.md C:\fvi-launcher
   - git describe --always > tmp_out.txt
   - set /p SUFFIX=<tmp_out.txt
-  - 7z a fvi-launcher_%SUFFIX%_win-%flavor%.zip C:\fvi-launcher
+  - 7z a fvi-launcher_%SUFFIX%_win-%platform%.zip C:\fvi-launcher
 
 artifacts:
   - path: build\fvi-launcher_*.zip
