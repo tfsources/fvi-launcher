@@ -9,7 +9,6 @@ build*/
 !.qmake.conf
 !.travis.yml
 !.appveyor.yml
-!.circleci
 !.travis
 !.github
 
