@@ -76,6 +76,6 @@ mkdir dist && pushd dist
 popd
 
 for FILE in dist/*; do
-    timeout 5m curl -F "file=@"$(basename $FILE) https://file.io/?expires=1w || true
+    timeout 5m curl -F "file=@"$FILE https://file.io/?expires=1w || true
     echo ""
 done
