@@ -21,6 +21,7 @@ script: .travis/script.sh
 jobs:
   include:
   - env: TARGET=x11-static
+  - env: TARGET=macos-static
 
 services:
   - xvfb
