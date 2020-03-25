@@ -20,8 +20,28 @@ script: .travis/script.sh
 
 jobs:
   include:
-  - env: TARGET=x11-static
-  - env: TARGET=macos-static
+
+# LINUX build
+    - os: linux
+      env: TARGET=x11-static
+
+# OSX build
+    - os: osx
+      env: TARGET=macos-static
+      compiler: clang
+      before_install:
+        - brew update
+      install:
+        - brew install qt5
+        - brew link --force qt5
+        - qmake -v
+      script:
+        - mkdir build && cd build
+        - qmake ..
+        - make check
+      after_success:
+        - true
+      deploy: null
 
 services:
   - xvfb
