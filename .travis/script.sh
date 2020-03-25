@@ -37,13 +37,6 @@ find -name *.qml -exec ${QT_HOSTDIR}/bin/qmllint {} \;
 
 mkdir build && pushd build
 
-if [[ -n ${RUN_COV-} ]]; then
-  source ../.travis/script__build_with_lcov.sh
-  (cd .. && coveralls-lcov build/coverage.clean)
-  popd
-  exit 0
-fi
-
 ${QT_HOSTDIR}/bin/qmake .. \
   USE_SDL_GAMEPAD=1 \
   INSTALL_BINDIR=/usr/bin \
