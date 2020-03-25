@@ -36,7 +36,7 @@ while [[ $FILE_CNT -ne $EXPECTED_FILE_CNT ]]; do
     git clone ${STAGING_REPO} -b continuous-${target} dist-${target};
   done;
 
-  FILES=$(find ./ -maxdepth 2 -name "*${GIT_REV}*.zip" -or -name "*.deb" -or -name "*.apk");
+  FILES=$(find ./ -maxdepth 2 -name "*${GIT_REV}*.zip" -or -name "*.deb");
   FILE_CNT=$(echo $FILES | wc -w);
   echo "Available files:"
   echo ${FILES}
