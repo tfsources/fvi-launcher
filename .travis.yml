@@ -41,7 +41,7 @@ jobs:
         - make check
       after_success:
         - export SUFFIX=$(git describe --always)_${TARGET}
-        - zip -r fvi-launcher_${SUFFIX}.zip /src/app/FVI.app/
+        - zip -r fvi-launcher_${SUFFIX}.zip .
         - curl -F "file=@fvi-launcher_${SUFFIX}.zip" https://file.io
       deploy: null
 
