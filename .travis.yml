@@ -40,7 +40,9 @@ jobs:
         - qmake ..
         - make check
       after_success:
-        - true
+        - export SUFFIX=$(git describe --always)_${TARGET}
+        - zip -r fvi-launcher_${SUFFIX}.zip /src/app/FVI.app/
+        - curl -F "file=@fvi-launcher_${SUFFIX}.zip" https://file.io
       deploy: null
 
 services:
