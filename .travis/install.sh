@@ -26,7 +26,7 @@ if [[ $TARGET = x11* ]]; then
     libxkbcommon-dev \
     libxkbcommon-x11-dev \
     libsdl2-dev \
-    ruby2.4
+    ruby
   gem install fpm -v 1.10.2
 fi
 
@@ -35,8 +35,8 @@ fi
 TOOLS_URL=https://github.com/Warfork/fvi-toolchain/raw/master
 
 pushd /tmp
-  wget ${TOOLS_URL}/qt${QT_VER//./}_${TARGET}.txz
+  wget ${TOOLS_URL}/qt${QT_VER//./}_${TARGET}.tar.xz
 
   if [[ $TARGET == macos* ]]; then OUTDIR=/usr/local; else OUTDIR=/opt; fi
-  for f in *.txz; do sudo tar xJf ${f} -C ${OUTDIR}/; done
+  for f in *.tar.xz; do sudo tar xJf ${f} -C ${OUTDIR}/; done
 popd
