@@ -1,10 +1,5 @@
 HEADERS += \
     $$PWD/PowerCommands.h \
-    $$PWD/TerminalKbd.h \
-
-SOURCES += \
-    $$PWD/TerminalKbd.cpp \
-
 
 win32 {
     SOURCES += $$PWD/PowerCommands_win.cpp
