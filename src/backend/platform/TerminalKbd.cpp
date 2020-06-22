@@ -17,6 +17,8 @@
 
 #include "TerminalKbd.h"
 
+#include <QtGlobal>
+
 #if defined(Q_OS_LINUX)
 
 #include <unistd.h>
