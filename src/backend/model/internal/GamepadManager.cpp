@@ -80,7 +80,15 @@ GamepadManager::GamepadManager(QObject* parent)
     connect(m_backend, &GamepadManagerBackend::axisChanged,
             this, &GamepadManager::bkOnAxisChanged);
 
+#ifndef Q_OS_ANDROID
+    connect(m_backend, &GamepadManagerBackend::buttonChanged,
+            &padbuttonnav, &GamepadButtonNavigation::onButtonChanged);
+    connect(m_backend, &GamepadManagerBackend::axisChanged,
+            &padaxisnav, &GamepadAxisNavigation::onAxisEvent);
 
+    connect(&padaxisnav, &GamepadAxisNavigation::buttonChanged,
+            &padbuttonnav, &GamepadButtonNavigation::onButtonChanged);
+#endif // Q_OS_ANDROID
 
     m_backend->start();
 }
@@ -129,7 +137,7 @@ void GamepadManager::bkOnNameChanged(int device_id, QString name)
     const auto it = find_by_deviceid(*m_devices, device_id);
     if (it != m_devices->constEnd()) {
         Log::info(tr_log("Gamepad: set name of device %1 to '%2'").arg(pretty_id(device_id), name));
-        (*it)->setName(name);
+        (*it)->setName(std::move(name));
     }
 }
 

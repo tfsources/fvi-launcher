@@ -26,6 +26,11 @@
 #include <QString>
 #include <QVector>
 
+#ifndef Q_OS_ANDROID
+#  include "GamepadAxisNavigation.h"
+#  include "GamepadButtonNavigation.h"
+#endif
+
 
 namespace model {
 
@@ -57,16 +62,16 @@ public:
     };
     Q_ENUM(GMAxis)
 
-    Q_INVOKABLE void configureButton(int deviceId, GMButton button);
-    Q_INVOKABLE void configureAxis(int deviceId, GMAxis axis);
+    Q_INVOKABLE void configureButton(int deviceId, model::GamepadManager::GMButton button);
+    Q_INVOKABLE void configureAxis(int deviceId, model::GamepadManager::GMAxis axis);
     Q_INVOKABLE void cancelConfiguration();
 
 signals:
     void connected(int deviceId);
     void disconnected(QString deviceId);
 
-    void buttonConfigured(int deviceId, GMButton button);
-    void axisConfigured(int deviceId, GMAxis axis);
+    void buttonConfigured(int deviceId, model::GamepadManager::GMButton button);
+    void axisConfigured(int deviceId, model::GamepadManager::GMAxis axis);
     void configurationCanceled(int deviceId);
 
 private slots:
@@ -83,7 +88,10 @@ private slots:
 private:
     GamepadManagerBackend* const m_backend;
 
+#ifndef Q_OS_ANDROID
+    GamepadButtonNavigation padbuttonnav;
+    GamepadAxisNavigation padaxisnav;
+#endif
 };
 
 } // namespace model
-
