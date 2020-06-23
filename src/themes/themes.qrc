@@ -94,7 +94,6 @@
         <file>fvi/GameDetails/MediaItem.qml</file>
         <file>fvi/GameDetails/GameView.qml</file>
         <file>fvi/GameDetails/MediaView.qml</file>
-        <file>fvi/README.MD</file>
         <file>fvi/Settings/SettingsScreen.qml</file>
     </qresource>
 </RCC>
