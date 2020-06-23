@@ -2,12 +2,12 @@
     <qresource prefix="/themes">
         <file>fvi/VerticalList/SoftwareListMenu.qml</file>
         <file>fvi/utils.js</file>
-        <file>fvi/assets/images/gameOS-logo.png</file>
+        <file>fvi/assets/images/license.txt</file>
+        <file>fvi/assets/images/warfork-logo.png</file>
         <file>fvi/assets/images/scanlines_v3.png</file>
         <file>fvi/assets/images/background.jpg</file>
         <file>fvi/assets/images/icon_mediaplayer.svg</file>
         <file>fvi/assets/images/icon_back.svg</file>
-        <file>fvi/assets/images/simpleOS-logo.png</file>
         <file>fvi/assets/images/icon_play.svg</file>
         <file>fvi/assets/images/gradient.png</file>
         <file>fvi/assets/images/favicon.svg</file>
@@ -66,7 +66,8 @@
         <file>fvi/assets/sfx/back.wav</file>
         <file>fvi/assets/sfx/accept.wav</file>
         <file>fvi/assets/sfx/toggle.wav</file>
-        <file>fvi/assets/video/ftue.mp4</file>
+        <file>fvi/assets/video/fvi.mp4</file>
+        <file>fvi/assets/video/license.txt</file>
         <file>fvi/ShowcaseView/ShowcaseViewMenu.qml</file>
         <file>fvi/theme.cfg</file>
         <file>fvi/Search/Search.qml</file>
