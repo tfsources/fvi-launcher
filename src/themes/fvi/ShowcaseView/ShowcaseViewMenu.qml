@@ -98,7 +98,7 @@ id: root
         id: videocomponent
 
             anchors.fill: parent
-            source: "../assets/video/ftue.mp4"
+            source: "../assets/video/fvi.mp4"
             fillMode: VideoOutput.PreserveAspectCrop
             muted: true
             loops: MediaPlayer.Infinite
@@ -117,10 +117,10 @@ id: root
         Image {
         id: ftueLogo
 
-            width: vpx(350)
+            width: vpx(500)
             anchors { left: parent.left; leftMargin: globalMargin }
-            source: "../assets/images/gameOS-logo.png"
-            sourceSize { width: 350; height: 250}
+            source: "../assets/images/warfork-logo.png"
+            sourceSize { width: 500; height: 400}
             fillMode: Image.PreserveAspectFit
             smooth: true
             asynchronous: true
@@ -153,7 +153,7 @@ id: root
 
             width: vpx(150)
             anchors { left: parent.left; leftMargin: globalMargin }
-            source: "../assets/images/gameOS-logo.png"
+            source: "../assets/images/warfork-logo.png"
             sourceSize { width: 150; height: 100}
             fillMode: Image.PreserveAspectFit
             smooth: true
