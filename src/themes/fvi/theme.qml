@@ -169,12 +169,12 @@ id: root
     // Theme settings
     property var theme: {
         return {
-            main:           "#1d253d",
-            secondary:      "#202a44",
-            accent:         "#f00980",
-            highlight:      "#f00980",
+            main:           "#0c1d2c",
+            secondary:      "#20282f",
+            accent:         "#eb8c8a",
+            highlight:      "#eb8c8a",
             text:           "#ececec",
-            button:         "#f00980",
+            button:         "#eb8c8a",
             gradientstart:  "#000d111d",
             gradientend:    "#FF0d111d"
         }
