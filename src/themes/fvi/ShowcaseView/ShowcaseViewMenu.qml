@@ -18,6 +18,7 @@ import QtQuick 2.3
 import QtQuick.Layouts 1.11
 import SortFilterProxyModel 0.2
 import QtGraphicalEffects 1.0
+import QtMultimedia 5.9
 import QtQml.Models 2.10
 import "../Global"
 import "../GridView"
@@ -30,13 +31,12 @@ id: root
     // Pull in our custom lists and define
     ListFavorites { id: listAllFavorites; max: 15 }
     ListAllGames { id: listAllGames; max: 15 }
-    ListTopGames { id: listTopGames; max: 15 }
     ListLastPlayed { id: listAllLastPlayed; max: 10 }
     ListMostPlayed { id: listMostPlayed; max: 15 }
     ListPublisher { id: listPublisher; max: 15 }
     ListGenre { id: listGenre; max: 15 }
 
-    property var featuredCollection: (listAllFavorites.collection.games.count !== 0) ? listAllFavorites : listTopGames
+    property var featuredCollection: listAllFavorites
     property alias collection1: listAllLastPlayed
     property alias collection2: listMostPlayed
     property alias collection3: listGenre
@@ -44,6 +44,8 @@ id: root
 
     property string randoPub: Utils.returnRandom(Utils.uniqueValuesArray('publisher'))
     property string randoGenre: Utils.returnRandom(Utils.uniqueValuesArray('genreList'))[0].toLowerCase()
+
+    property bool ftue: featuredCollection.collection.games.count == 0
 
     function storeIndices(secondary) {
         storedHomePrimaryIndex = mainList.currentIndex;
@@ -56,6 +58,91 @@ id: root
     anchors.fill: parent
 
     Item {
+    id: ftueContainer
+
+        width: parent.width
+        height: vpx(360)
+        visible: ftue
+        opacity: {
+            switch (mainList.currentIndex) {
+                case 0:
+                    return 1;
+                case 1:
+                    return 0.3;
+                case 2:
+                    return 0.1;
+                case -1:
+                    return 0.3;
+                default:
+                    return 0
+            }
+        }
+        Behavior on opacity { PropertyAnimation { duration: 1000; easing.type: Easing.OutQuart; easing.amplitude: 2.0; easing.period: 1.5 } }
+
+        /*Image {
+            anchors.fill: parent
+            source: "../assets/images/ftueBG01.jpeg"
+            sourceSize { width: root.width; height: root.height}
+            fillMode: Image.PreserveAspectCrop
+            smooth: true
+            asynchronous: true
+        }*/
+
+        Rectangle {
+            anchors.fill: parent
+            color: "black"
+            opacity: 0.5
+        }
+
+        Video {
+        id: videocomponent
+
+            anchors.fill: parent
+            source: "../assets/video/fvi.mp4"
+            fillMode: VideoOutput.PreserveAspectCrop
+            muted: true
+            loops: MediaPlayer.Infinite
+            autoPlay: true
+
+            OpacityAnimator {
+                target: videocomponent;
+                from: 0;
+                to: 1;
+                duration: 1000;
+                running: true;
+            }
+
+        }
+
+        Image {
+        id: ftueLogo
+
+            width: vpx(500)
+            anchors { left: parent.left; leftMargin: globalMargin }
+            source: "../assets/images/warfork-logo.png"
+            sourceSize { width: 350; height: 250}
+            fillMode: Image.PreserveAspectFit
+            smooth: true
+            asynchronous: true
+            anchors.centerIn: parent
+        }
+
+        Text {
+            text: "Try adding some favorite games"
+            
+            horizontalAlignment: Text.AlignHCenter
+            anchors { bottom: parent.bottom; bottomMargin: vpx(75) }
+            width: parent.width
+            height: contentHeight
+            color: theme.text
+            font.family: subtitleFont.name
+            font.pixelSize: vpx(16)
+            opacity: 0.5
+            visible: false
+        }
+    }
+
+    Item {
     id: header
 
         width: parent.width
@@ -63,7 +150,16 @@ id: root
         z: 10
         Image {
         id: logo
-		// not needed right now
+
+            width: vpx(150)
+            anchors { left: parent.left; leftMargin: globalMargin }
+            source: "../assets/images/warfork-logo.png"
+            sourceSize { width: 150; height: 100}
+            fillMode: Image.PreserveAspectFit
+            smooth: true
+            asynchronous: true
+            anchors.verticalCenter: parent.verticalCenter
+            visible: !ftueContainer.visible
         }
 
         Rectangle {
@@ -136,15 +232,15 @@ id: root
             clip: true
             preferredHighlightBegin: vpx(0)
             preferredHighlightEnd: parent.width
-            //highlightRangeMode: ListView.StrictlyEnforceRange
+            highlightRangeMode: ListView.StrictlyEnforceRange
             //highlightMoveDuration: 200
             highlightMoveVelocity: -1
             snapMode: ListView.SnapOneItem
             keyNavigationWraps: true
-            currentIndex: (storedHomePrimaryIndex === 0) ? storedHomeSecondaryIndex : 0
+            currentIndex: (storedHomePrimaryIndex == 0) ? storedHomeSecondaryIndex : 0
             Component.onCompleted: positionViewAtIndex(currentIndex, ListView.Visible)
             
-            model: featuredCollection.collection.games
+            model: !ftue ? featuredCollection.collection.games : 0
             delegate: featuredDelegate
 
             Component {
@@ -160,6 +256,12 @@ id: root
                     sourceSize { width: featuredlist.width; height: featuredlist.height }
                     fillMode: Image.PreserveAspectCrop
                     asynchronous: true
+                        
+                    onSelectedChanged: {
+                        if (selected)
+                            logoAnim.start()
+                    }
+
                     Rectangle {
                         
                         anchors.fill: parent
@@ -180,6 +282,14 @@ id: root
                         anchors.horizontalCenter: parent.horizontalCenter
                         anchors.verticalCenter: parent.verticalCenter
                         opacity: featuredlist.focus ? 1 : 0.5
+
+                        PropertyAnimation { 
+                        id: logoAnim; 
+                            target: specialLogo; 
+                            properties: "y"; 
+                            from: specialLogo.y-vpx(50); 
+                            duration: 100
+                        }
                     }
 
                     // Mouse/touch functionality
