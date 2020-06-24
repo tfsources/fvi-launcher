@@ -130,7 +130,7 @@ FocusScope {
                 },
                 SecondaryMenuItem {
                     id: mbQuitExit
-                    text: qsTr("Exit Pegasus") + api.tr
+                    text: qsTr("Exit FVI") + api.tr
                     onActivated: requestQuit()
 
                     readonly property bool callable: api.internal.meta.allowAppClose
