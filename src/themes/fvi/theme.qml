@@ -30,7 +30,7 @@ id: root
 
     FontLoader { id: titleFont; source: "assets/fonts/SourceSansPro-Bold.ttf" }
     FontLoader { id: subtitleFont; source: "assets/fonts/OpenSans-Bold.ttf" }
-    FontLoader { id: bodyFont; source: "assets/fonts/OpenSans-SemiBold.ttf" }
+    FontLoader { id: bodyFont; source: "assets/fonts/OpenSans-Semibold.ttf" }
 
     // Load settings
     property var settings: {
@@ -63,6 +63,9 @@ id: root
             ShowcaseCollection4_Thumbnail: api.memory.has("Collection 4 - Thumbnail") ? api.memory.get("Collection 4 - Thumbnail") : "Tall",
             ShowcaseCollection5:           api.memory.has("Collection 5") ? api.memory.get("Collection 5") : "None",
             ShowcaseCollection5_Thumbnail: api.memory.has("Collection 5 - Thumbnail") ? api.memory.get("Collection 5 - Thumbnail") : "Wide",
+			WideRatio:                     api.memory.has("Wide - Ratio") ? api.memory.get("Wide - Ratio") : "0.64",
+            TallRatio:                     api.memory.has("Tall - Ratio") ? api.memory.get("Tall - Ratio") : "0.66"
+			
         }
     }
 
