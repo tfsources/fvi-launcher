@@ -90,6 +90,7 @@
         <file>fvi/Lists/ListMostPlayed.qml</file>
         <file>fvi/Lists/ListAllGames.qml</file>
         <file>fvi/Lists/ListCollectionGames.qml</file>
+        <file>fvi/Lists/ListRecommended.qml</file>
         <file>fvi/GameDetails/LaunchGame.qml</file>
         <file>fvi/GameDetails/Button.qml</file>
         <file>fvi/GameDetails/MediaItem.qml</file>
