@@ -90,7 +90,7 @@ namespace appsettings {
 General::General()
     : DEFAULT_LOCALE(QStringLiteral("en"))
     , DEFAULT_THEME(QStringLiteral(":/themes/fvi/"))
-    , portable(false)
+    , portable(true)
     , fullscreen(false)
     , mouse_support(true)
     , locale(DEFAULT_LOCALE)
