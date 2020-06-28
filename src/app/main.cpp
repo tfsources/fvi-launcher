@@ -89,7 +89,6 @@ backend::CliArgs handle_cli_args(QGuiApplication& app)
     argparser.process(app); // may quit!
 
     backend::CliArgs args;
-    args.portable = argparser.isSet(arg_portable);
     args.silent = argparser.isSet(arg_silent);
     args.enable_menu_appclose = !(argparser.isSet(arg_menu_kiosk) || argparser.isSet(arg_menu_appclose));
     args.enable_menu_shutdown = !(argparser.isSet(arg_menu_kiosk) || argparser.isSet(arg_menu_shutdown));
