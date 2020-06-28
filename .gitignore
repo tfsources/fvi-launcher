@@ -22,3 +22,4 @@ build*/
 *.jsc
 *.autosave
 src/pegasus-fe.exe
+src/pegasus-fe.exe.lnk

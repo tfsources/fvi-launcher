@@ -19,7 +19,7 @@
 
 namespace backend {
 struct CliArgs {
-    bool portable = true;
+    bool portable = false;
     bool silent = false;
     bool enable_menu_appclose = true;
     bool enable_menu_shutdown = false;
