@@ -1,0 +1,12 @@
+collection: AFPS
+shortname: WF
+launch: "{file.path}"
+game: Warfork
+file: ..\..\..\applications\warfork\Warfork.app\Contents\Resources\warfork_x64.exe
+developer: Team Forbidden LLC.
+publisher: Team Forbidden LLC.
+genre: AFPS
+description: Warfork is a demanding fast paced first person shooter with a focus on speed, aim, movement, and above all competitive play.
+release: 2019-08-16
+rating: 100%
+players: 32
