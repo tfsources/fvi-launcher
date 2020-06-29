@@ -1,0 +1,2 @@
+general.input-mouse-support: true
+general.fullscreen: false
