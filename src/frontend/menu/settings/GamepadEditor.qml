@@ -139,7 +139,7 @@ FocusScope {
 
     Rectangle {
         width: parent.width
-        color: "#00111C"
+        color: "#0C1D2C"
         anchors {
             top: deviceSelect.bottom
             bottom: parent.bottom

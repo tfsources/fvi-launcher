@@ -19,7 +19,7 @@ import QtQuick 2.8
 
 GenericMenuItem {
     activeColor: "#777"
-    inactiveColor: "#00111C"
+    inactiveColor: "#0C1D2C"
     textSizePx: vpx(35)
     selected: focus
 }

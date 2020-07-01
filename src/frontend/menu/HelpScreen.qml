@@ -157,7 +157,7 @@ MenuScreen {
                     Text {
                         text: "You should have received a copy of the full license along with this "
                             + "program. If not, you can also find it on the following address: "
-                            + "<tt>https://forbidden.gg/license</tt>."
+                            + "<tt>https://warfork.com/license</tt>."
                         color: licenses.textColor
                         lineHeight: licenses.textLineHeight
                         font.pixelSize: licenses.textSize

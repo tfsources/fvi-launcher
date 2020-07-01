@@ -25,7 +25,7 @@ Rectangle {
     property alias image: mImage.source
 
     color: mouse.containsMouse ? border.color : "transparent"
-    border.color: "#8BB7E4"
+    border.color: "#EB8C8A"
     border.width: vpx(2)
     radius: vpx(8)
 

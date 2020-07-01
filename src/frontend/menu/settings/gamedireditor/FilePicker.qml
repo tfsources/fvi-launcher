@@ -102,7 +102,7 @@ FocusScope {
                 id: path
                 width: parent.width
                 height: pathText.height
-                color: "#00111C"
+                color: "#0C1D2C"
 
                 Text {
                     id: pathText

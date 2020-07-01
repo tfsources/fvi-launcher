@@ -31,7 +31,7 @@ Item {
         height: width
         anchors.centerIn: parent
 
-        color: "#00111C"
+        color: "#0C1D2C"
         border { width: 1.5; color: "#aaa" }
         radius: width * 0.5
     }
