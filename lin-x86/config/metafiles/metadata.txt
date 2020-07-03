@@ -1,11 +1,11 @@
 collection: AFPS
-shortname: afps
+shortname: AFPS
 launch: "{file.path}"
 game: Warfork: Arena FPS
 file: ../../../applications/warfork/Warfork.app/Contents/Resources/warfork.i386
 developer: Team Forbidden LLC.
 publisher: Team Forbidden LLC.
-genre: afps
+genre: Arena FPS
 description: Warfork is a demanding fast paced first person shooter with a focus on speed, aim, movement, and above all competitive play.
 release: 2019-08-16
 rating: 100%
