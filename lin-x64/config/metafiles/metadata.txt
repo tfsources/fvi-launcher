@@ -2,7 +2,7 @@ collection: AFPS
 shortname: afps
 launch: "{file.path}"
 game: Warfork: Arena FPS
-file: ../../../applications/warfork/Warfork.app/Contents/Resources/warfork_x64.exe
+file: ../../../applications/warfork/Warfork.app/Contents/Resources/warfork.x86_64
 developer: Team Forbidden LLC.
 publisher: Team Forbidden LLC.
 genre: afps

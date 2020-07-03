@@ -2,7 +2,7 @@ collection: AFPS
 shortname: afps
 launch: "{file.path}"
 game: Warfork: Arena FPS
-file: ..\..\..\applications\warfork\Warfork.app\Contents\Resources\warfork_x64.exe
+file: ../../../applications/warfork/Warfork.app/Contents/Resources/warfork_x86.exe
 developer: Team Forbidden LLC.
 publisher: Team Forbidden LLC.
 genre: afps
@@ -10,10 +10,10 @@ description: Warfork is a demanding fast paced first person shooter with a focus
 release: 2019-08-16
 rating: 100%
 players: 32
-assets.logo: ..\..\..\media\warfork\logo.png
-assets.video: ..\..\..\media\warfork\vid1.webm
-assets.screenshot: ..\..\..\media\warfork\ss_1.jpg
-assets.screenshot: ..\..\..\media\warfork\ss_2.jpg
-assets.screenshot: ..\..\..\media\warfork\ss_3.jpg
-assets.screenshot: ..\..\..\media\warfork\ss_4.jpg
-assets.screenshot: ..\..\..\media\warfork\ss_5.jpg
+assets.logo: ../../../media/warfork/logo.png
+assets.video: ../../../media/warfork/vid1.webm
+assets.screenshot: ../../../media/warfork/ss_1.jpg
+assets.screenshot: ../../../media/warfork/ss_2.jpg
+assets.screenshot: ../../../media/warfork/ss_3.jpg
+assets.screenshot: ../../../media/warfork/ss_4.jpg
+assets.screenshot: ../../../media/warfork/ss_5.jpg
