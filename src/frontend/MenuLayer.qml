@@ -82,7 +82,6 @@ FocusScope {
 
         focus: true
 
-        onShowSettingsScreen: root.openScreen("menu/SettingsScreen.qml")
         onShowHelpScreen: root.openScreen("menu/HelpScreen.qml")
 
         onClose: root.triggerClose()
