@@ -25,9 +25,9 @@ id: root
         Row {
             spacing: 10
             Image {
-                source: "../assets/images/controller/" + processButtonArt(button) + ".png"
-                width: vpx(30)
-                height: vpx(30)
+                source: "../assets/images/keyboard/" + processButtonArt(button) + ".png"
+                width: vpx(36)
+                height: vpx(36)
             }
             Text { 
                 text: name
@@ -57,40 +57,37 @@ id: root
         var buttonModel;
         switch (button) {
             case "accept":
-            buttonModel = api.keys.accept;
+			buttonModel = api.keys.accept[0].name();
             break;
             case "cancel":
-            buttonModel = api.keys.cancel;
+			buttonModel = api.keys.cancel[0].name();
             break;
             case "filters":
-            buttonModel = api.keys.filters;
+			buttonModel = api.keys.filters[0].name();
             break;
             case "details":
-            buttonModel = api.keys.details;
+			buttonModel = api.keys.details[0].name();
             break;
             case "nextPage":
-            buttonModel = api.keys.nextPage;
+			buttonModel = api.keys.nextPage[0].name();
             break;
             case "prevPage":
-            buttonModel = api.keys.prevPage;
+			buttonModel = api.keys.prevPage[0].name();
             break;
             case "pageUp":
-            buttonModel = api.keys.pageUp;
+			buttonModel = api.keys.pageUp[0].name();
             break;
             case "pageDown":
-                buttonModel = api.keys.pageDown;
+		     	buttonModel = api.keys.pageDown[0].name();
                 break;
             default:
-            buttonModel = api.keys.accept;
-        }
+            buttonModel = api.keys.accept[0].name();
+		}
 
-        var i;
-        for (i = 0; buttonModel.length; i++) {
-            if (buttonModel[i].name().includes("Gamepad")) {
-            var buttonValue = buttonModel[i].key.toString(16)
-            return buttonValue.substring(buttonValue.length-1, buttonValue.length);
-            }
-        }
+            var buttonValue = buttonModel;
+            return buttonValue;
+           
+  
     }
     
 }
