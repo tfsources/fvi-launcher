@@ -22,6 +22,15 @@ Properitary:
 /src/app/platform/macos/fvi-launcher.icns
 /src/frontend/assets/logo.svg
 /src/themes/fvi/assets/images/defaultbg.jpg
+/src/themes/fvi/assets/images/keyboard/return.png image sourced from Archil Imnadze https://archil.imnadze.ge/ https://www.iconfinder.com/aimnadze
+/src/themes/fvi/assets/images/keyboard/enter.png image sourced from Archil Imnadze https://archil.imnadze.ge/ https://www.iconfinder.com/aimnadze
+/src/themes/fvi/assets/images/chat.png image sourced from Geomicons https://jxnblk.github.io/
+/src/themes/fvi/assets/images/events.png image sourced from Geomicons https://jxnblk.github.io/
+/src/themes/fvi/assets/images/facebook.png image sourced from Geomicons https://jxnblk.github.io/
+/src/themes/fvi/assets/images/website.png image sourced from Geomicons https://jxnblk.github.io/
+/src/themes/fvi/assets/images/wiki.png image sourced from Geomicons https://jxnblk.github.io/
+/src/themes/fvi/assets/images/settings.png image sourced from Geomicons https://jxnblk.github.io/
+/src/themes/fvi/assets/images/twitter.png image sourced from Geomicons https://jxnblk.github.io/
 
 GPLv3:
 

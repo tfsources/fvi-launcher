@@ -22,6 +22,15 @@
 		<file>fvi/assets/images/logospng/sdk.png</file>
 		<file>fvi/assets/images/logospng/wf.png</file>
 		<file>fvi/assets/images/logospng/steam.png</file>
+		<file>fvi/assets/images/keyboard/return.png</file>
+		<file>fvi/assets/images/keyboard/enter.png</file>
+		<file>fvi/assets/images/chat.png</file>
+		<file>fvi/assets/images/events.png</file>
+		<file>fvi/assets/images/facebook.png</file>
+		<file>fvi/assets/images/website.png</file>
+		<file>fvi/assets/images/wiki.png</file>
+		<file>fvi/assets/images/settings.png</file>
+		<file>fvi/assets/images/twitter.png</file>
         <file>fvi/assets/images/controller/0.svg</file>
         <file>fvi/assets/images/controller/right.svg</file>
         <file>fvi/assets/images/controller/input_DPAD-L.png</file>
@@ -138,7 +147,6 @@
         <file>fvi/assets/images/scanlines_v2.png</file>
         <file>fvi/assets/images/borderimage.gif</file>
         <file>fvi/assets/images/faviemptycon.svg</file>
-        <file>fvi/assets/images/settingsicon.svg</file>
         <file>fvi/assets/images/scanlines.png</file>
         <file>fvi/assets/images/icon_details.svg</file>
         <file>fvi/assets/fonts/OpenSans-Semibold.ttf</file>

@@ -225,6 +225,8 @@ id: root
             visible: !ftueContainer.visible
         }
 
+
+		// settings button
         Rectangle {
         id: settingsbutton
 
@@ -265,7 +267,8 @@ id: root
                 onClicked: settingsScreen();
             }
         }
-
+	
+		
         Image {
         id: settingsicon
 
@@ -274,9 +277,66 @@ id: root
             anchors.centerIn: settingsbutton
             smooth: true
             asynchronous: true
-            source: "../assets/images/settingsicon.svg"
+            source: "../assets/images/settings.png"
             opacity: root.focus ? 0.8 : 0.5
         }
+		
+		
+		// chat button
+		    Rectangle {
+        id: chatbutton
+
+            width: height
+            height: vpx(40)
+            anchors { left: parent.left; leftMargin: globalMargin }
+            color: focus ? theme.accent : "white"
+            radius: height/2
+            opacity: focus ? 1 : 0.2
+            anchors.verticalCenter: parent.verticalCenter
+            onFocusChanged: {
+                sfxNav.play()
+                if (focus)
+                    mainList.currentIndex = -1;
+                else
+                    mainList.currentIndex = 0;
+            }
+
+            Keys.onDownPressed: mainList.focus = true;
+            Keys.onPressed: {
+                // Accept
+                if (api.keys.isAccept(event) && !event.isAutoRepeat) {
+                    event.accepted = true;
+                    chatScreen();            
+                }
+                // Back
+                if (api.keys.isCancel(event) && !event.isAutoRepeat) {
+                    event.accepted = true;
+                    mainList.focus = true;
+                }
+            }
+            // Mouse/touch functionality
+            MouseArea {
+                anchors.fill: parent
+                hoverEnabled: chat.MouseHover == "Yes"
+                onEntered: chatbutton.focus = true;
+                onExited: chatbutton.focus = false;
+                onClicked: chatScreen();
+            }
+        }
+		
+		
+		Image {
+        id: chaticon
+
+            width: height
+            height: vpx(24)
+            anchors.centerIn: chatbutton
+            smooth: true
+            asynchronous: true
+            source: "../assets/images/chat.png"
+            opacity: root.focus ? 0.8 : 0.5
+        }
+		
     }
 
     // Using an object model to build the list
@@ -702,6 +762,8 @@ id: root
             settingsScreen();
         }
     }
+	
+	
 
     // Helpbar buttons
     ListModel {
