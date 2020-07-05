@@ -53,6 +53,87 @@
         <file>fvi/assets/images/controller/3.svg</file>
         <file>fvi/assets/images/controller/9.png</file>
         <file>fvi/assets/images/controller/2.png</file>
+		<file>fvi/assets/images/keyboard/0.png</file>
+		<file>fvi/assets/images/keyboard/1.png</file>
+		<file>fvi/assets/images/keyboard/2.png</file>
+		<file>fvi/assets/images/keyboard/3.png</file>
+		<file>fvi/assets/images/keyboard/4.png</file>
+		<file>fvi/assets/images/keyboard/5.png</file>
+		<file>fvi/assets/images/keyboard/6.png</file>
+		<file>fvi/assets/images/keyboard/7.png</file>
+		<file>fvi/assets/images/keyboard/8.png</file>
+		<file>fvi/assets/images/keyboard/9.png</file>
+		<file>fvi/assets/images/keyboard/a.png</file>
+		<file>fvi/assets/images/keyboard/alt.png</file>
+		<file>fvi/assets/images/keyboard/apostrophe.png</file>
+		<file>fvi/assets/images/keyboard/b.png</file>
+		<file>fvi/assets/images/keyboard/backspace.png</file>
+		<file>fvi/assets/images/keyboard/bracketleft.png</file>
+		<file>fvi/assets/images/keyboard/bracketright.png</file>
+		<file>fvi/assets/images/keyboard/c.png</file>
+		<file>fvi/assets/images/keyboard/caps.png</file>
+		<file>fvi/assets/images/keyboard/comma.png</file>
+		<file>fvi/assets/images/keyboard/ctrl.png</file>
+		<file>fvi/assets/images/keyboard/d.png</file>
+		<file>fvi/assets/images/keyboard/del.png</file>
+		<file>fvi/assets/images/keyboard/down.png</file>
+		<file>fvi/assets/images/keyboard/e.png</file>
+		<file>fvi/assets/images/keyboard/end.png</file>
+		<file>fvi/assets/images/keyboard/enter.png</file>
+		<file>fvi/assets/images/keyboard/equals.png</file>
+		<file>fvi/assets/images/keyboard/esc.png</file>
+		<file>fvi/assets/images/keyboard/f.png</file>
+		<file>fvi/assets/images/keyboard/f1.png</file>
+		<file>fvi/assets/images/keyboard/f10.png</file>
+		<file>fvi/assets/images/keyboard/f11.png</file>
+		<file>fvi/assets/images/keyboard/f12.png</file>
+		<file>fvi/assets/images/keyboard/f13.png</file>
+		<file>fvi/assets/images/keyboard/f14.png</file>
+		<file>fvi/assets/images/keyboard/f15.png</file>
+		<file>fvi/assets/images/keyboard/f2.png</file>
+		<file>fvi/assets/images/keyboard/f3.png</file>
+		<file>fvi/assets/images/keyboard/f4.png</file>
+		<file>fvi/assets/images/keyboard/f5.png</file>
+		<file>fvi/assets/images/keyboard/f6.png</file>
+		<file>fvi/assets/images/keyboard/f7.png</file>
+		<file>fvi/assets/images/keyboard/f8.png</file>
+		<file>fvi/assets/images/keyboard/f9.png</file>
+		<file>fvi/assets/images/keyboard/fwdslash.png</file>
+		<file>fvi/assets/images/keyboard/g.png</file>
+		<file>fvi/assets/images/keyboard/h.png</file>
+		<file>fvi/assets/images/keyboard/home.png</file>
+		<file>fvi/assets/images/keyboard/hyphen.png</file>
+		<file>fvi/assets/images/keyboard/i.png</file>
+		<file>fvi/assets/images/keyboard/ins.png</file>
+		<file>fvi/assets/images/keyboard/j.png</file>
+		<file>fvi/assets/images/keyboard/k.png</file>
+		<file>fvi/assets/images/keyboard/l.png</file>
+		<file>fvi/assets/images/keyboard/left.png</file>
+		<file>fvi/assets/images/keyboard/m.png</file>
+		<file>fvi/assets/images/keyboard/n.png</file>
+		<file>fvi/assets/images/keyboard/o.png</file>
+		<file>fvi/assets/images/keyboard/p.png</file>
+		<file>fvi/assets/images/keyboard/period.png</file>
+		<file>fvi/assets/images/keyboard/pgdwn.png</file>
+		<file>fvi/assets/images/keyboard/pgup.png</file>
+		<file>fvi/assets/images/keyboard/q.png</file>
+		<file>fvi/assets/images/keyboard/r.png</file>
+		<file>fvi/assets/images/keyboard/return.png</file>
+		<file>fvi/assets/images/keyboard/right.png</file>
+		<file>fvi/assets/images/keyboard/s.png</file>
+		<file>fvi/assets/images/keyboard/semicolon.png</file>
+		<file>fvi/assets/images/keyboard/shift.png</file>
+		<file>fvi/assets/images/keyboard/space.png</file>
+		<file>fvi/assets/images/keyboard/t.png</file>
+		<file>fvi/assets/images/keyboard/tab.png</file>
+		<file>fvi/assets/images/keyboard/tilde.png</file>
+		<file>fvi/assets/images/keyboard/u.png</file>
+		<file>fvi/assets/images/keyboard/up.png</file>
+		<file>fvi/assets/images/keyboard/v.png</file>
+		<file>fvi/assets/images/keyboard/w.png</file>
+		<file>fvi/assets/images/keyboard/x.png</file>
+		<file>fvi/assets/images/keyboard/y.png</file>
+		<file>fvi/assets/images/keyboard/z.png</file> 
         <file>fvi/assets/images/icon_heart.svg</file>
         <file>fvi/assets/images/scanlines_v2.png</file>
         <file>fvi/assets/images/borderimage.gif</file>
@@ -78,7 +159,7 @@
         <file>fvi/Global/DynamicGridItem.qml</file>
         <file>fvi/Global/HorizontalCollection.qml</file>
         <file>fvi/Global/BoxArtGridItem.qml</file>
-        <file>fvi/Global/ButtonHelpBar.qml</file>
+		<file>fvi/Global/ButtonHelpBar.qml</file>
         <file>fvi/Global/ItemBorder.qml</file>
         <file>fvi/Global/GameInfo.qml</file>
         <file>fvi/Global/HeaderBar.qml</file>
