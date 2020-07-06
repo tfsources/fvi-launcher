@@ -25,7 +25,7 @@ id: root
         Row {
             spacing: 10
             Image {
-                source: "../assets/images/keyboard/" + processButtonArt(button) + ".png"
+                source: "../assets/images/keyboard/" + processButtonArt(button).toLowerCase() + ".png"
                 width: vpx(36)
                 height: vpx(36)
             }
