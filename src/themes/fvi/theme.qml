@@ -261,6 +261,36 @@ id: root
         root.state = "gameviewscreen";
     }
 
+    function chatScreen() {
+        sfxAccept.play();
+        Qt.openUrlExternally("https://discord.gg/VY95TKZ");
+    }
+	
+    function websiteScreen() {
+        sfxAccept.play();
+        Qt.openUrlExternally("https://warfork.com");
+    }	
+
+    function wikiScreen() {
+        sfxAccept.play();
+        Qt.openUrlExternally("https://warforkwiki.com");
+    }
+	
+	function eventsScreen() {
+        sfxAccept.play();
+        Qt.openUrlExternally("https://steamcommunity.com/app/671610/eventcomments");
+    }
+	
+    function twitterScreen() {
+        sfxAccept.play();
+        Qt.openUrlExternally("https://twitter.com/warforksocial");
+    }	
+
+    function facebookScreen() {
+        sfxAccept.play();
+        Qt.openUrlExternally("https://facebook.com");
+    }
+	
     function settingsScreen() {
         sfxAccept.play();
         lastState.push(state);

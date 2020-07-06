@@ -280,7 +280,7 @@ id: root
             source: "../assets/images/settings.png"
             opacity: root.focus ? 0.8 : 0.5
         }
-		
+
 		
 		// chat button
 		    Rectangle {
@@ -288,7 +288,7 @@ id: root
 
             width: height
             height: vpx(40)
-            anchors { left: parent.left; leftMargin: globalMargin }
+            anchors { left: parent.left; leftMargin: vpx(20) }
             color: focus ? theme.accent : "white"
             radius: height/2
             opacity: focus ? 1 : 0.2
@@ -305,8 +305,7 @@ id: root
             Keys.onPressed: {
                 // Accept
                 if (api.keys.isAccept(event) && !event.isAutoRepeat) {
-                    event.accepted = true;
-                    chatScreen();            
+                    event.accepted = true;       
                 }
                 // Back
                 if (api.keys.isCancel(event) && !event.isAutoRepeat) {
@@ -317,10 +316,11 @@ id: root
             // Mouse/touch functionality
             MouseArea {
                 anchors.fill: parent
-                hoverEnabled: chat.MouseHover == "Yes"
+                hoverEnabled: settings.MouseHover == "Yes"
                 onEntered: chatbutton.focus = true;
                 onExited: chatbutton.focus = false;
                 onClicked: chatScreen();
+
             }
         }
 		
@@ -336,6 +336,298 @@ id: root
             source: "../assets/images/chat.png"
             opacity: root.focus ? 0.8 : 0.5
         }
+		
+		
+		// website button
+		    Rectangle {
+        id: websitebutton
+
+            width: height
+            height: vpx(40)
+            anchors { left: parent.left; leftMargin: vpx(70) }
+            color: focus ? theme.accent : "white"
+            radius: height/2
+            opacity: focus ? 1 : 0.2
+            anchors.verticalCenter: parent.verticalCenter
+            onFocusChanged: {
+                sfxNav.play()
+                if (focus)
+                    mainList.currentIndex = -1;
+                else
+                    mainList.currentIndex = 0;
+            }
+
+            Keys.onDownPressed: mainList.focus = true;
+            Keys.onPressed: {
+                // Accept
+                if (api.keys.isAccept(event) && !event.isAutoRepeat) {
+                    event.accepted = true;       
+                }
+                // Back
+                if (api.keys.isCancel(event) && !event.isAutoRepeat) {
+                    event.accepted = true;
+                    mainList.focus = true;
+                }
+            }
+            // Mouse/touch functionality
+            MouseArea {
+                anchors.fill: parent
+                hoverEnabled: settings.MouseHover == "Yes"
+                onEntered: websitebutton.focus = true;
+                onExited: websitebutton.focus = false;
+                onClicked: websiteScreen();
+
+            }
+        }
+		
+
+		Image {
+        id: websiteicon
+
+            width: height
+            height: vpx(24)
+            anchors.centerIn: websitebutton
+            smooth: true
+            asynchronous: true
+            source: "../assets/images/website.png"
+            opacity: root.focus ? 0.8 : 0.5
+        }
+
+
+
+	// wiki button
+		    Rectangle {
+        id: wikibutton
+
+            width: height
+            height: vpx(40)
+            anchors { left: parent.left; leftMargin: vpx(120) }
+            color: focus ? theme.accent : "white"
+            radius: height/2
+            opacity: focus ? 1 : 0.2
+            anchors.verticalCenter: parent.verticalCenter
+            onFocusChanged: {
+                sfxNav.play()
+                if (focus)
+                    mainList.currentIndex = -1;
+                else
+                    mainList.currentIndex = 0;
+            }
+
+            Keys.onDownPressed: mainList.focus = true;
+            Keys.onPressed: {
+                // Accept
+                if (api.keys.isAccept(event) && !event.isAutoRepeat) {
+                    event.accepted = true;       
+                }
+                // Back
+                if (api.keys.isCancel(event) && !event.isAutoRepeat) {
+                    event.accepted = true;
+                    mainList.focus = true;
+                }
+            }
+            // Mouse/touch functionality
+            MouseArea {
+                anchors.fill: parent
+                hoverEnabled: settings.MouseHover == "Yes"
+                onEntered: wikibutton.focus = true;
+                onExited: wikibutton.focus = false;
+                onClicked: wikiScreen();
+
+            }
+        }
+		
+		
+		
+		
+		Image {
+        id: wikiicon
+
+            width: height
+            height: vpx(24)
+            anchors.centerIn: wikibutton
+            smooth: true
+            asynchronous: true
+            source: "../assets/images/wiki.png"
+            opacity: root.focus ? 0.8 : 0.5
+        }
+
+
+
+
+	// events button
+		    Rectangle {
+        id: eventsbutton
+
+            width: height
+            height: vpx(40)
+            anchors { left: parent.left; leftMargin: vpx(170) }
+            color: focus ? theme.accent : "white"
+            radius: height/2
+            opacity: focus ? 1 : 0.2
+            anchors.verticalCenter: parent.verticalCenter
+            onFocusChanged: {
+                sfxNav.play()
+                if (focus)
+                    mainList.currentIndex = -1;
+                else
+                    mainList.currentIndex = 0;
+            }
+
+            Keys.onDownPressed: mainList.focus = true;
+            Keys.onPressed: {
+                // Accept
+                if (api.keys.isAccept(event) && !event.isAutoRepeat) {
+                    event.accepted = true;       
+                }
+                // Back
+                if (api.keys.isCancel(event) && !event.isAutoRepeat) {
+                    event.accepted = true;
+                    mainList.focus = true;
+                }
+            }
+            // Mouse/touch functionality
+            MouseArea {
+                anchors.fill: parent
+                hoverEnabled: settings.MouseHover == "Yes"
+                onEntered: eventsbutton.focus = true;
+                onExited: eventsbutton.focus = false;
+                onClicked: eventsScreen();
+
+            }
+        }
+		
+		
+		
+		Image {
+        id: eventsicon
+
+            width: height
+            height: vpx(24)
+            anchors.centerIn: eventsbutton
+            smooth: true
+            asynchronous: true
+            source: "../assets/images/events.png"
+            opacity: root.focus ? 0.8 : 0.5
+        }
+
+
+// twitter button
+		    Rectangle {
+        id: twitterbutton
+
+            width: height
+            height: vpx(40)
+            anchors { left: parent.left; leftMargin: vpx(220) }
+            color: focus ? theme.accent : "white"
+            radius: height/2
+            opacity: focus ? 1 : 0.2
+            anchors.verticalCenter: parent.verticalCenter
+            onFocusChanged: {
+                sfxNav.play()
+                if (focus)
+                    mainList.currentIndex = -1;
+                else
+                    mainList.currentIndex = 0;
+            }
+
+            Keys.onDownPressed: mainList.focus = true;
+            Keys.onPressed: {
+                // Accept
+                if (api.keys.isAccept(event) && !event.isAutoRepeat) {
+                    event.accepted = true;       
+                }
+                // Back
+                if (api.keys.isCancel(event) && !event.isAutoRepeat) {
+                    event.accepted = true;
+                    mainList.focus = true;
+                }
+            }
+            // Mouse/touch functionality
+            MouseArea {
+                anchors.fill: parent
+                hoverEnabled: settings.MouseHover == "Yes"
+                onEntered: twitterbutton.focus = true;
+                onExited: twitterbutton.focus = false;
+                onClicked: twitterScreen();
+
+            }
+        }
+		
+		
+		Image {
+        id: twittericon
+
+            width: height
+            height: vpx(24)
+            anchors.centerIn: twitterbutton
+            smooth: true
+            asynchronous: true
+            source: "../assets/images/twitter.png"
+            opacity: root.focus ? 0.8 : 0.5
+        }
+		
+		
+// facebook button
+		    Rectangle {
+        id: facebookbutton
+
+            width: height
+            height: vpx(40)
+            anchors { left: parent.left; leftMargin: vpx(270) }
+            color: focus ? theme.accent : "white"
+            radius: height/2
+            opacity: focus ? 1 : 0.2
+            anchors.verticalCenter: parent.verticalCenter
+            onFocusChanged: {
+                sfxNav.play()
+                if (focus)
+                    mainList.currentIndex = -1;
+                else
+                    mainList.currentIndex = 0;
+            }
+
+            Keys.onDownPressed: mainList.focus = true;
+            Keys.onPressed: {
+                // Accept
+                if (api.keys.isAccept(event) && !event.isAutoRepeat) {
+                    event.accepted = true;       
+                }
+                // Back
+                if (api.keys.isCancel(event) && !event.isAutoRepeat) {
+                    event.accepted = true;
+                    mainList.focus = true;
+                }
+            }
+            // Mouse/touch functionality
+            MouseArea {
+                anchors.fill: parent
+                hoverEnabled: settings.MouseHover == "Yes"
+                onEntered: facebookbutton.focus = true;
+                onExited: facebookbutton.focus = false;
+                onClicked: facebookScreen();
+
+            }
+        }
+				
+		
+				Image {
+        id: facebookicon
+
+            width: height
+            height: vpx(24)
+            anchors.centerIn: facebookbutton
+            smooth: true
+            asynchronous: true
+            source: "../assets/images/facebook.png"
+            opacity: root.focus ? 0.8 : 0.5
+        }
+
+
+
+
+		
+		
 		
     }
 
