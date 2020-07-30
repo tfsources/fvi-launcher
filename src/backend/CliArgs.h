@@ -25,5 +25,6 @@ struct CliArgs {
     bool enable_menu_shutdown = false;
     bool enable_menu_reboot = false;
     bool enable_menu_settings = false;
+    bool enable_gamepad_autoconfig = true;
 };
 } // namespace backend
