@@ -24,5 +24,6 @@ struct CliArgs {
     bool enable_menu_appclose = true;
     bool enable_menu_shutdown = false;
     bool enable_menu_reboot = false;
+    bool enable_menu_settings = false;
 };
 } // namespace backend

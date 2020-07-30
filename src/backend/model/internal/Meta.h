@@ -77,6 +77,7 @@ private:
     const bool m_enable_menu_reboot;
     const bool m_enable_menu_shutdown;
     const bool m_enable_menu_appclose;
+    const bool m_enable_menu_settings;
 
     bool m_loading;
     float m_loading_progress;

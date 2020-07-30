@@ -80,8 +80,16 @@ backend::CliArgs handle_cli_args(QGuiApplication& app)
         tr_log("Hides the closing FVI entry in the main menu"));
     argparser.addOption(arg_menu_appclose);
 
+    const QCommandLineOption arg_menu_settings(QStringLiteral("disable-menu-settings"),
+        tr_log("Hides the settings menu entry in the main menu"));
+    argparser.addOption(arg_menu_settings);
+
     const QCommandLineOption arg_menu_kiosk(QStringLiteral("kiosk"),
-        tr_log("Alias for '--disable-menu-reboot --disable-menu-shutdown --disable-menu-appclose'"));
+	tr_log("Alias for:\n"
+               "--disable-menu-reboot\n"
+               "--disable-menu-shutdown\n"
+               "--disable-menu-appclose\n"
+               "--disable-menu-settings"));
     argparser.addOption(arg_menu_kiosk);
 
     argparser.addHelpOption();
@@ -93,5 +101,6 @@ backend::CliArgs handle_cli_args(QGuiApplication& app)
     args.enable_menu_appclose = !(argparser.isSet(arg_menu_kiosk) || argparser.isSet(arg_menu_appclose));
     args.enable_menu_shutdown = !(argparser.isSet(arg_menu_kiosk) || argparser.isSet(arg_menu_shutdown));
     args.enable_menu_reboot = !(argparser.isSet(arg_menu_kiosk) || argparser.isSet(arg_menu_reboot));
+    args.enable_menu_settings = !(argparser.isSet(arg_menu_kiosk) || argparser.isSet(arg_menu_settings));
     return args;
 }

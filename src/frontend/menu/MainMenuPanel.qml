@@ -29,6 +29,7 @@ FocusScope {
     enabled: focus
 
     signal close
+    signal showSettingsScreen
     signal showHelpScreen
 
     signal requestShutdown
@@ -62,6 +63,20 @@ FocusScope {
         anchors.bottom: parent.bottom
         anchors.bottomMargin: vpx(30)
 
+        PrimaryMenuItem {
+            id: mbSettings
+            text: qsTr("Settings") + api.tr
+            onActivated: {
+                focus = true;
+                root.showSettingsScreen();
+            }
+            selected: focus
+
+            enabled: api.internal.meta.allowSettings
+            visible: enabled
+
+            KeyNavigation.down: mbHelp
+        }
         PrimaryMenuItem {
             id: mbHelp
             text: qsTr("Help") + api.tr
