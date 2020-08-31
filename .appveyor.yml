@@ -3,7 +3,7 @@ version: 0.0.{build}
 pull_requests:
   do_not_increment_build_number: true
 
-os: Visual Studio 2017
+os: Visual Studio 2019
 
 platform:
   - x86
@@ -15,7 +15,7 @@ branches:
 environment:
   matrix:
     - flavor: msvc
-      QTDIR: C:\Qt\5.12\msvc2017
+      QTDIR: C:\Qt\5.15\msvc2019
       MAKE: "nmake /NOLOGO"
 
 init:
@@ -23,7 +23,7 @@ init:
   - set FVI_HOME=C:\hello\world
 
 before_build:
-  - call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars32.bat" x86
+  - call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars32.bat" x86
   - git submodule update --init
 
 build_script:
