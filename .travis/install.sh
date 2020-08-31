@@ -23,7 +23,7 @@ if [[ $TARGET = x11* ]]; then
     libxcb-image0-dev \
     libxcb-keysyms1-dev \
     libxcb-render-util0-dev \
-    libxcb-xinerama0-dev \	
+    libxcb-xinerama0-dev \
     libgstreamer-plugins-base1.0-dev \
     libpulse-dev \
     libudev-dev \
