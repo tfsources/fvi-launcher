@@ -18,7 +18,7 @@ if [[ $TARGET = x11* ]]; then
   sudo apt-get -qq update
   sudo apt-get install -y \
     libasound-dev \
-    libgl1-mesa-dev \	
+    libgl1-mesa-dev \
     libxcb-icccm4-dev \
     libxcb-image0-dev \
     libxcb-keysyms1-dev \
