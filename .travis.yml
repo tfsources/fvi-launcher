@@ -12,7 +12,7 @@ env:
     - QT_VER=5.15.0
 
 git:
-  depth: 175
+  depth: 1000
 
 
 install: .travis/install.sh
