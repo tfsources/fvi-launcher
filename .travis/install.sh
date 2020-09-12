@@ -31,6 +31,7 @@ if [[ $TARGET = x11* ]]; then
     libxkbcommon-dev \
     libxkbcommon-x11-dev \
     libsdl2-dev \
+    libzstd-dev \
     ruby
   gem install fpm -v 1.10.2
 fi
