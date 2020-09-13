@@ -110,7 +110,7 @@ FocusScope {
     }
     Connections {
         target: subscreen.item
-        onClose: {
+        function onClose() {
             menuPanel.focus = true;
             root.state = "menu";
         }
