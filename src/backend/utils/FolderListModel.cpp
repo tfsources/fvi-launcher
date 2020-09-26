@@ -140,5 +140,6 @@ void FolderListModel::cd(const QString& dirName)
 void FolderListModel::setNameFilters(QStringList nameFilters)
 {
     m_name_filters = std::move(nameFilters);
+    emit nameFiltersChanged();
     cd(QStringLiteral("."));
 }

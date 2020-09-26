@@ -36,7 +36,9 @@ struct FolderListEntry {
 class FolderListModel : public QAbstractListModel {
     Q_OBJECT
     Q_PROPERTY(QString folder READ folder NOTIFY folderChanged)
-    Q_PROPERTY(QStringList nameFilters READ nameFilters WRITE setNameFilters)
+    Q_PROPERTY(QStringList nameFilters
+               READ nameFilters WRITE setNameFilters
+               NOTIFY nameFiltersChanged)
 
 public:
     explicit FolderListModel(QObject* parent = nullptr);
@@ -58,6 +60,7 @@ public:
 
 signals:
     void folderChanged();
+    void nameFiltersChanged();
 
 private:
     QDir m_dir;
