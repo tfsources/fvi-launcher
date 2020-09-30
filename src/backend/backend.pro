@@ -6,6 +6,7 @@ CONFIG += c++11 staticlib warn_on exceptions_off rtti_off
 !isEmpty(USE_SDL_GAMEPAD): include($${TOP_SRCDIR}/src/link_to_sdl.pri)
 else: QT += gamepad
 
+!isEmpty(INSIDE_FLATPAK): DEFINES *= PEGASUS_INSIDE_FLATPAK
 
 SOURCES += \
     Api.cpp \
