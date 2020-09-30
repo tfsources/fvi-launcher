@@ -124,10 +124,17 @@ void ProcessLauncher::onLaunchRequested(const model::GameFile* q_gamefile)
     const model::GameFile& gamefile = *q_gamefile;
     const model::Game& game = static_cast<model::Game&>(*gamefile.parent());
 
+    const QString raw_launch_cmd =
+#if defined(Q_OS_LINUX) && defined(PEGASUS_INSIDE_FLATPAK)
+        QLatin1String("flatpak-spawn --host ") % game.launchCmd();
+#else
+        game.launchCmd();
+#endif
+
 
     // TODO: in the future, check the gamefile's own launch command first
 
-    QStringList args = ::utils::tokenize_command(game.launchCmd());
+    QStringList args = ::utils::tokenize_command(raw_launch_cmd);
     for (QString& arg : args)
         replace_variables(arg, gamefile.fileinfo());
 
@@ -141,6 +148,17 @@ void ProcessLauncher::onLaunchRequested(const model::GameFile* q_gamefile)
     }
     command = helpers::abs_launchcmd(command, game.launchCmdBasedir());
 
+#if defined(Q_OS_WINDOWS)
+    const QFileInfo command_finfo(command);
+    if (command_finfo.isSymLink() && command_finfo.suffix() == QLatin1String("lnk")) {
+        args = QStringList {
+            QStringLiteral("/q"),
+            QStringLiteral("/c"),
+            command,
+        } + args;
+        command = QStringLiteral("cmd");
+    }
+#endif
 
     const QString default_workdir = contains_slash(command)
         ? QFileInfo(command).absolutePath()
