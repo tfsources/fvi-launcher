@@ -18,6 +18,7 @@
 #include "FrontendLayer.h"
 
 #include "Paths.h"
+#include "imggen/BlurhashProvider.h"
 
 #include <QNetworkAccessManager>
 #include <QNetworkDiskCache>
@@ -64,6 +65,7 @@ void FrontendLayer::rebuild()
     m_engine->addImportPath(QStringLiteral("lib/qml"));
     m_engine->addImportPath(QStringLiteral("qml"));
     m_engine->setNetworkAccessManagerFactory(new DiskCachedNAMFactory);
+    m_engine->addImageProvider(QStringLiteral("blurhash"), new BlurhashProvider);
     m_engine->rootContext()->setContextProperty(QStringLiteral("api"), m_api);
     m_engine->load(QUrl(QStringLiteral("qrc:/frontend/main.qml")));
 
