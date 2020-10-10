@@ -25,6 +25,7 @@
 #include <QSettings>
 
 backend::CliArgs handle_cli_args(QGuiApplication&);
+bool portable_txt_present();
 
 int main(int argc, char *argv[])
 {
@@ -46,10 +47,18 @@ int main(int argc, char *argv[])
     app.setWindowIcon(QIcon(QStringLiteral(":/icon.png")));
 
     backend::CliArgs cli_args = handle_cli_args(app);
+    cli_args.portable |= portable_txt_present();
+
     backend::Backend backend(cli_args);
     backend.start();
 
     return app.exec();
+}
+
+bool portable_txt_present()
+{
+    const QString path = QCoreApplication::applicationDirPath() + QStringLiteral("/portable.txt");
+    return QFileInfo::exists(path);
 }
 
 QCommandLineOption add_cli_option(QCommandLineParser& parser, const QString& name, const QString& desc)
