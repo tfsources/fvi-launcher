@@ -16,4 +16,3 @@ assets.screenshot: ../../../media/warfork/ss_1.jpg
 assets.screenshot: ../../../media/warfork/ss_2.jpg
 assets.screenshot: ../../../media/warfork/ss_3.jpg
 assets.screenshot: ../../../media/warfork/ss_4.jpg
-assets.screenshot: ../../../media/warfork/ss_5.jpg
