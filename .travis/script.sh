@@ -44,8 +44,7 @@ ${QT_HOSTDIR}/bin/qmake .. \
   INSTALL_DESKTOPDIR=/usr/share/applications \
   INSTALL_APPSTREAMDIR=/usr/share/metainfo \
   INSTALL_DOCDIR=/usr/share/doc/fvi-launcher \
-  QMAKE_CXXFLAGS+='-fno-rtti' \
-  QMAKE_LFLAGS+='-fno-rtti'
+
 make
 make install INSTALL_ROOT=$PWD/../installoc
 
