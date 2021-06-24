@@ -71,7 +71,7 @@ MenuScreen {
                         .arg(api.internal.meta.gitDate)
                         + api.tr
 
-                    text: programInfo + "<br>Copyright \u00a9 2020 Team Forbidden LLC."
+                    text: programInfo + "<br>Copyright \u00a9 2021 Team Forbidden LLC."
                     color: "#eee"
                     font.pixelSize: bodyFontSize
                     font.family: globalFonts.sans
