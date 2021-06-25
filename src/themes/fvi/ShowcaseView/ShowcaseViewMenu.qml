@@ -567,64 +567,6 @@ id: root
             opacity: root.focus ? 0.8 : 0.5
         }
 		
-		
-// facebook button
-		    Rectangle {
-        id: facebookbutton
-
-            width: height
-            height: vpx(40)
-            anchors { left: parent.left; leftMargin: vpx(270) }
-            color: focus ? theme.accent : "white"
-            radius: height/2
-            opacity: focus ? 1 : 0.2
-            anchors.verticalCenter: parent.verticalCenter
-            onFocusChanged: {
-                sfxNav.play()
-                if (focus)
-                    mainList.currentIndex = -1;
-                else
-                    mainList.currentIndex = 0;
-            }
-
-            Keys.onDownPressed: mainList.focus = true;
-            Keys.onPressed: {
-                // Accept
-                if (api.keys.isAccept(event) && !event.isAutoRepeat) {
-                    event.accepted = true;       
-                }
-                // Back
-                if (api.keys.isCancel(event) && !event.isAutoRepeat) {
-                    event.accepted = true;
-                    mainList.focus = true;
-                }
-            }
-            // Mouse/touch functionality
-            MouseArea {
-                anchors.fill: parent
-                hoverEnabled: settings.MouseHover == "Yes"
-                onEntered: facebookbutton.focus = true;
-                onExited: facebookbutton.focus = false;
-                onClicked: facebookScreen();
-
-            }
-        }
-				
-		
-				Image {
-        id: facebookicon
-
-            width: height
-            height: vpx(24)
-            anchors.centerIn: facebookbutton
-            smooth: true
-            asynchronous: true
-            source: "../assets/images/facebook.png"
-            opacity: root.focus ? 0.8 : 0.5
-        }
-
-
-
 
 		
 		
