@@ -31,6 +31,8 @@ id: root
             }
             Text { 
                 text: name
+				style: Text.Raised;
+				styleColor: "black"
                 font.family: subtitleFont.name
                 font.pixelSize: vpx(16)
                 color: theme.text
