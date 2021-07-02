@@ -517,7 +517,7 @@ id: root
         Button { 
         id: button4
 
-            //text: "Back"
+            text: "Back"
             icon: "../assets/images/icon_back.svg"
             height: parent.height
             selected: ListView.isCurrentItem && menu.focus
