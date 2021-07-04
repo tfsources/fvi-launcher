@@ -29,7 +29,6 @@ FocusScope {
 id: root
 
     property var game: api.allGames.get(0)
-    property string favIcon: game && game.favorite ? "../assets/images/icon_unheart.svg" : "../assets/images/icon_heart.svg"
     property string collectionName: game ? game.collections.get(0).name : ""
     property string collectionShortName: game ? game.collections.get(0).shortName : ""
     property bool iamsteam: game ? (collectionShortName == "steam") : false
@@ -478,38 +477,36 @@ id: root
                 }
         }
 
-        Button { 
-        id: button2 
+		Button { 
+        id: button2
 
-            icon: "../assets/images/icon_details.svg"
+            text: "Source Code"
+            icon: "../assets/images/icon_github.svg"
             height: parent.height
             selected: ListView.isCurrentItem && menu.focus
             onHighlighted: { menu.currentIndex = ObjectModel.index; content.currentIndex = 0; }
             onActivated: 
-                if (selected) {
-                    sfxToggle.play();
-                    showDetails();
-                } else {
-                    sfxNav.play();
+                if (selected) 
+                    Qt.openUrlExternally(game.extra.source[0]);
+                else {
+                    sfxNav.play(); 
                     menu.currentIndex = ObjectModel.index;
                 }
         }
 
-        Button { 
-        id: button3 
+		Button { 
+        id: button3
 
-            property string buttonText: game && game.favorite ? "Unfavorite" : "Add favorite"
-            //text: buttonText
-            icon: favIcon
+            text: "Website"
+            icon: "../assets/images/icon_www.png"
             height: parent.height
             selected: ListView.isCurrentItem && menu.focus
             onHighlighted: { menu.currentIndex = ObjectModel.index; content.currentIndex = 0; }
             onActivated: 
-                if (selected) {
-                    sfxToggle.play();
-                    game.favorite = !game.favorite;
-                } else {
-                    sfxNav.play();
+                if (selected) 
+                    Qt.openUrlExternally(game.extra.website[0]);
+                else {
+                    sfxNav.play(); 
                     menu.currentIndex = ObjectModel.index;
                 }
         }
@@ -530,6 +527,7 @@ id: root
                     menu.currentIndex = ObjectModel.index;
                 }
         }
+		
     }
 
     // Full list
@@ -673,12 +671,6 @@ id: root
             else
                 previousScreen();
         }
-        // Filters
-        if (api.keys.isFilters(event) && !event.isAutoRepeat) {
-            event.accepted = true;
-            sfxAccept.play();
-            game.favorite = !game.favorite;
-        }
     }
 
     // Helpbar buttons
@@ -690,13 +682,10 @@ id: root
             button: "cancel"
         }
         ListElement {
-            name: "Toggle favorite"
-            button: "filters"
-        }
-        ListElement {
             name: "Launch"
             button: "accept"
         }
+	
     }
     
     onFocusChanged: { 
