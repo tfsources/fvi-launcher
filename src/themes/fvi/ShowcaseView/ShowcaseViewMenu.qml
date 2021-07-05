@@ -157,7 +157,18 @@ id: root
             opacity: 0.5
         }
 
+       Image {
+        id: videocomponentimage
+
+            anchors.fill: parent
+            source: "../assets/images/fvi.jpg"
+            fillMode: Image.PreserveAspectCrop
+            smooth: true
+            asynchronous: true
+            anchors.centerIn: parent
+        }
         Video {
+                
         id: videocomponent
 
             anchors.fill: parent
@@ -174,7 +185,8 @@ id: root
                 duration: 1000;
                 running: true;
             }
-
+            
+        
         }
 
         Image {
