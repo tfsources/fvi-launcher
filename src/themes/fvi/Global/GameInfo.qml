@@ -96,7 +96,7 @@ id: infocontainer
 
         // Version box
         Text {
-        id: playerstitle
+        id: versiontitle
 
             width: contentWidth
             height: parent.height
@@ -110,13 +110,13 @@ id: infocontainer
         }
 
         Text {
-        id: playerstext
+        id: versiontext
 
             width: contentWidth
             height: parent.height
-            anchors { left: playerstitle.right; leftMargin: vpx(5) }
+            anchors { left: versiontitle.right; leftMargin: vpx(5) }
             verticalAlignment: Text.AlignVCenter
-            text: gameData ? gameData.players : ""
+            text: game.extra.version[0]
             font.pixelSize: vpx(16)
             font.family: subtitleFont.name
             color: theme.text
@@ -126,7 +126,7 @@ id: infocontainer
         id: divider2
             width: vpx(2)
             anchors {
-                left: playerstext.right; leftMargin: (25)
+                left: versiontext.right; leftMargin: (25)
                 top: parent.top; topMargin: vpx(10)
                 bottom: parent.bottom; bottomMargin: vpx(10)
             }
