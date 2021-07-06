@@ -434,10 +434,6 @@ id: root
             button: "cancel"
         }
         ListElement {
-            name: "Filters"
-            button: "filters"
-        }
-        ListElement {
             name: "View details"
             button: "accept"
         }
