@@ -404,7 +404,7 @@ id: root
             }
             fillMode: Image.PreserveAspectFit
             source: "../assets/images/logospng/" + Utils.processPlatformName(game.collections.get(0).shortName) + ".png"
-            sourceSize { width: 128; height: 64 }
+            sourceSize: Qt.size(width, height)
             smooth: true
             visible: false
             asynchronous: true           

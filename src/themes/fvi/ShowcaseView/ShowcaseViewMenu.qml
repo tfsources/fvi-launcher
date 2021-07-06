@@ -195,7 +195,7 @@ id: root
             width: vpx(500)
             anchors { left: parent.left; leftMargin: globalMargin }
             source: "../assets/images/warfork-logo.png"
-            sourceSize { width: 350; height: 250}
+            sourceSize: Qt.size(ftueLogo.width, ftueLogo.height)
             fillMode: Image.PreserveAspectFit
             smooth: true
             asynchronous: true
@@ -229,7 +229,7 @@ id: root
             width: vpx(150)
             anchors { left: parent.left; leftMargin: globalMargin }
             source: "../assets/images/warfork-logo.png"
-            sourceSize { width: 150; height: 100}
+            sourceSize: Qt.size(logo.width, logo.height)
             fillMode: Image.PreserveAspectFit
             smooth: true
             asynchronous: true
@@ -647,7 +647,7 @@ id: root
                         source: Utils.logo(modelData)
                         fillMode: Image.PreserveAspectFit
                         asynchronous: true
-                        sourceSize { width: 256; height: 256 }
+                        sourceSize: Qt.size(specialLogo.width, specialLogo.height)
                         anchors.horizontalCenter: parent.horizontalCenter
                         anchors.verticalCenter: parent.verticalCenter
                         opacity: featuredlist.focus ? 1 : 0.5
@@ -763,7 +763,7 @@ id: root
                     anchors.centerIn: parent
                     anchors.margins: vpx(15)
                     source: "../assets/images/logospng/" + Utils.processPlatformName(modelData.shortName) + ".png"
-                    sourceSize { width: 256; height: 128 }
+                    sourceSize: Qt.size(collectionlogo.width, collectionlogo.height)
                     fillMode: Image.PreserveAspectFit
                     asynchronous: true
                     smooth: true
