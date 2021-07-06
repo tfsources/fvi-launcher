@@ -28,6 +28,7 @@ id: root
                 source: "../assets/images/keyboard/" + processButtonArt(button).toLowerCase() + ".png"
                 width: vpx(36)
                 height: vpx(36)
+                asynchronous: true
             }
             Text { 
                 text: name
