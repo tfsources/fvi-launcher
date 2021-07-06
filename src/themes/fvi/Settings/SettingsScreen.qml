@@ -95,7 +95,7 @@ id: root
         }
         ListElement {
             settingName: "Collection 1"
-            setting: "Recently Played,Most Played,Recommended,Top by Publisher,Top by Genre,None,Favorites"
+            setting: "Recently Played,Most Played,None"
         }
         ListElement {
             settingName: "Collection 1 - Thumbnail"
@@ -103,7 +103,7 @@ id: root
         }
         ListElement {
             settingName: "Collection 2"
-            setting: "Most Played,Recommended,Top by Publisher,Top by Genre,None,Favorites,Recently Played"
+            setting: "Most Played,None,Recently Played"
         }
         ListElement {
             settingName: "Collection 2 - Thumbnail"
@@ -111,7 +111,7 @@ id: root
         }
         ListElement {
             settingName: "Collection 3"
-            setting: "Top by Publisher,Top by Genre,None,Favorites,Recently Played,Most Played,Recommended"
+            setting: "None,Recently Played,Most Played"
         }
         ListElement {
             settingName: "Collection 3 - Thumbnail"
@@ -119,7 +119,7 @@ id: root
         }
         ListElement {
             settingName: "Collection 4"
-            setting: "Top by Genre,None,Favorites,Recently Played,Most Played,Recommended,Top by Publisher"
+            setting: "None,Recently Played,Most Played"
         }
         ListElement {
             settingName: "Collection 4 - Thumbnail"
@@ -127,7 +127,7 @@ id: root
         }
         ListElement {
             settingName: "Collection 5"
-            setting: "None,Favorites,Recently Played,Most Played,Recommended,Top by Publisher,Top by Genre"
+            setting: "None,Recently Played,Most Played"
         }
         ListElement {
             settingName: "Collection 5 - Thumbnail"
