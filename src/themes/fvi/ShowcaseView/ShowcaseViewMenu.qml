@@ -161,7 +161,7 @@ id: root
         id: videocomponentimage
 
             anchors.fill: parent
-            source: "../assets/images/fvi.jpg"
+            source: "../assets/images/fvi.png"
             fillMode: Image.PreserveAspectCrop
             smooth: true
             asynchronous: true
