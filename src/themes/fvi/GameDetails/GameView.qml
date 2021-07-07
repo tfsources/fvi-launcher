@@ -463,7 +463,7 @@ id: root
         Button { 
         id: button1 
 
-            text: "Play game"
+            text: "Play"
             height: parent.height
             selected: ListView.isCurrentItem && menu.focus
             onHighlighted: { menu.currentIndex = ObjectModel.index; content.currentIndex = 0; }
@@ -487,7 +487,7 @@ id: root
             onHighlighted: { menu.currentIndex = ObjectModel.index; content.currentIndex = 0; }
             onActivated: 
                 if (selected) 
-                    Qt.openUrlExternally(game.extra.source[0]);
+                    Qt.openUrlExternally(game.source);
                 else {
                     sfxNav.play(); 
                     menu.currentIndex = ObjectModel.index;
@@ -504,7 +504,7 @@ id: root
             onHighlighted: { menu.currentIndex = ObjectModel.index; content.currentIndex = 0; }
             onActivated: 
                 if (selected) 
-                    Qt.openUrlExternally(game.extra.website[0]);
+                    Qt.openUrlExternally(game.website);
                 else {
                     sfxNav.play(); 
                     menu.currentIndex = ObjectModel.index;

@@ -187,6 +187,18 @@ void Parser::parse_game_entry(const metafile::Entry& entry, providers::SearchCon
             for (const QString& line : entry.values)
                 m_cur_game->inner().genreList().append(line);
             break;
+         case GameAttrib::WEBSITES:
+            for (const QString& line : entry.values)
+                m_cur_game->inner().websiteList().append(line);
+            break;
+         case GameAttrib::SOURCES:
+            for (const QString& line : entry.values)
+                m_cur_game->inner().sourceList().append(line);
+            break;
+         case GameAttrib::VERSIONS:
+            for (const QString& line : entry.values)
+                m_cur_game->inner().versionList().append(line);
+            break;
         case GameAttrib::TAGS:
             for (const QString& line : entry.values)
                 m_cur_game->inner().tagList().append(line);

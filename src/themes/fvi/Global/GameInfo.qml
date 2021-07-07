@@ -116,7 +116,7 @@ id: infocontainer
             height: parent.height
             anchors { left: versiontitle.right; leftMargin: vpx(5) }
             verticalAlignment: Text.AlignVCenter
-            text: game.extra.version[0]
+            text: game.version
             font.pixelSize: vpx(16)
             font.family: subtitleFont.name
             color: theme.text

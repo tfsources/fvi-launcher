@@ -41,6 +41,9 @@ Game::Game(QString name, QObject* parent)
 QString Game::developerStr() const { return joined_list(m_data.developers); }
 QString Game::publisherStr() const { return joined_list(m_data.publishers); }
 QString Game::genreStr() const { return joined_list(m_data.genres); }
+QString Game::websiteStr() const { return joined_list(m_data.websites); }
+QString Game::sourceStr() const { return joined_list(m_data.sources); }
+QString Game::versionStr() const { return joined_list(m_data.versions); }
 QString Game::tagStr() const { return joined_list(m_data.tags); }
 
 Game& Game::setFavorite(bool new_val)

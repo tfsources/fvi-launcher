@@ -41,6 +41,9 @@ struct GameData {
     QStringList developers;
     QStringList publishers;
     QStringList genres;
+    QStringList websites;
+    QStringList sources;
+    QStringList versions;
     QStringList tags;
 
     short player_count = 1;
@@ -81,6 +84,9 @@ public:
     GETTER(const QStringList&, developerListConst, developers)
     GETTER(const QStringList&, publisherListConst, publishers)
     GETTER(const QStringList&, genreListConst, genres)
+    GETTER(const QStringList&, websiteListConst, websites)
+    GETTER(const QStringList&, sourceListConst, sources)
+    GETTER(const QStringList&, versionListConst, versions)
     GETTER(const QStringList&, tagListConst, tags)
 
     GETTER(int, releaseYear, release_date.year())
@@ -126,6 +132,9 @@ public:
     STRLIST(developer, developers)
     STRLIST(publisher, publishers)
     STRLIST(genre, genres)
+    STRLIST(website, websites)
+    STRLIST(source, sources)
+    STRLIST(version, versions)
     STRLIST(tag, tags)
 #undef GEN
 
