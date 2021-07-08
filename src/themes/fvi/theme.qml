@@ -67,11 +67,14 @@ id: root
             ShowcaseCollection5:           api.memory.has("Collection 5") ? api.memory.get("Collection 5") : "None",
             ShowcaseCollection5_Thumbnail: api.memory.has("Collection 5 - Thumbnail") ? api.memory.get("Collection 5 - Thumbnail") : "Wide",
             WideRatio:                     api.memory.has("Wide - Ratio") ? api.memory.get("Wide - Ratio") : "0.64",
-            TallRatio:                     api.memory.has("Tall - Ratio") ? api.memory.get("Tall - Ratio") : "0.66"
+            TallRatio:                     api.memory.has("Tall - Ratio") ? api.memory.get("Tall - Ratio") : "0.66",
+            Skin:                          api.memory.has("Skin") ? api.memory.get("Skin") : "1"
             
         }
     }
 
+    // Skin: 1. Amber, 2. Buck, 3. Rufus, 4. Serena, 5. Hamilton, 6. Leon
+    
     // Collections
     property int currentCollectionIndex: 0
     property int currentGameIndex: 0

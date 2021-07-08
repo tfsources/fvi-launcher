@@ -194,7 +194,7 @@ id: root
 
             width: vpx(500)
             anchors { left: parent.left; leftMargin: globalMargin }
-            source: "../assets/images/warfork-logo.png"
+            source: "../assets/images/" + settings.Skin + ".png";
             sourceSize: Qt.size(parent.width, parent.height)
             fillMode: Image.PreserveAspectFit
             smooth: true
@@ -305,37 +305,14 @@ id: root
             radius: height/2
             opacity: focus ? 1 : 0.2
             anchors.verticalCenter: parent.verticalCenter
-            onFocusChanged: {
-                sfxNav.play()
-                if (focus)
-                    mainList.currentIndex = -1;
-                else
-                    mainList.currentIndex = 0;
-            }
 
-            Keys.onDownPressed: mainList.focus = true;
-            Keys.onPressed: {
-                // Accept
-                if (api.keys.isAccept(event) && !event.isAutoRepeat) {
-                    event.accepted = true;       
-                }
-                // Back
-                if (api.keys.isCancel(event) && !event.isAutoRepeat) {
-                    event.accepted = true;
-                    mainList.focus = true;
-                }
-            }
             // Mouse/touch functionality
             MouseArea {
                 anchors.fill: parent
-                hoverEnabled: settings.MouseHover == "Yes"
-                onEntered: chatbutton.focus = true;
-                onExited: chatbutton.focus = false;
                 onClicked: chatScreen();
-
             }
+            
         }
-		
 		
 		Image {
         id: chaticon
@@ -349,7 +326,6 @@ id: root
             opacity: root.focus ? 0.8 : 0.5
         }
 		
-		
 		// website button
 		    Rectangle {
         id: websitebutton
@@ -361,35 +337,13 @@ id: root
             radius: height/2
             opacity: focus ? 1 : 0.2
             anchors.verticalCenter: parent.verticalCenter
-            onFocusChanged: {
-                sfxNav.play()
-                if (focus)
-                    mainList.currentIndex = -1;
-                else
-                    mainList.currentIndex = 0;
-            }
 
-            Keys.onDownPressed: mainList.focus = true;
-            Keys.onPressed: {
-                // Accept
-                if (api.keys.isAccept(event) && !event.isAutoRepeat) {
-                    event.accepted = true;       
-                }
-                // Back
-                if (api.keys.isCancel(event) && !event.isAutoRepeat) {
-                    event.accepted = true;
-                    mainList.focus = true;
-                }
-            }
             // Mouse/touch functionality
             MouseArea {
                 anchors.fill: parent
-                hoverEnabled: settings.MouseHover == "Yes"
-                onEntered: websitebutton.focus = true;
-                onExited: websitebutton.focus = false;
                 onClicked: websiteScreen();
-
             }
+
         }
 		
 
@@ -418,40 +372,15 @@ id: root
             radius: height/2
             opacity: focus ? 1 : 0.2
             anchors.verticalCenter: parent.verticalCenter
-            onFocusChanged: {
-                sfxNav.play()
-                if (focus)
-                    mainList.currentIndex = -1;
-                else
-                    mainList.currentIndex = 0;
-            }
 
-            Keys.onDownPressed: mainList.focus = true;
-            Keys.onPressed: {
-                // Accept
-                if (api.keys.isAccept(event) && !event.isAutoRepeat) {
-                    event.accepted = true;       
-                }
-                // Back
-                if (api.keys.isCancel(event) && !event.isAutoRepeat) {
-                    event.accepted = true;
-                    mainList.focus = true;
-                }
-            }
             // Mouse/touch functionality
             MouseArea {
                 anchors.fill: parent
-                hoverEnabled: settings.MouseHover == "Yes"
-                onEntered: wikibutton.focus = true;
-                onExited: wikibutton.focus = false;
                 onClicked: wikiScreen();
-
             }
+
         }
-		
-		
-		
-		
+				
 		Image {
         id: wikiicon
 
@@ -478,39 +407,15 @@ id: root
             radius: height/2
             opacity: focus ? 1 : 0.2
             anchors.verticalCenter: parent.verticalCenter
-            onFocusChanged: {
-                sfxNav.play()
-                if (focus)
-                    mainList.currentIndex = -1;
-                else
-                    mainList.currentIndex = 0;
-            }
 
-            Keys.onDownPressed: mainList.focus = true;
-            Keys.onPressed: {
-                // Accept
-                if (api.keys.isAccept(event) && !event.isAutoRepeat) {
-                    event.accepted = true;       
-                }
-                // Back
-                if (api.keys.isCancel(event) && !event.isAutoRepeat) {
-                    event.accepted = true;
-                    mainList.focus = true;
-                }
-            }
             // Mouse/touch functionality
             MouseArea {
                 anchors.fill: parent
-                hoverEnabled: settings.MouseHover == "Yes"
-                onEntered: eventsbutton.focus = true;
-                onExited: eventsbutton.focus = false;
                 onClicked: eventsScreen();
-
             }
+            
         }
-		
-		
-		
+
 		Image {
         id: eventsicon
 
@@ -525,6 +430,7 @@ id: root
 
 
 // twitter button
+
 		    Rectangle {
         id: twitterbutton
 
@@ -535,35 +441,13 @@ id: root
             radius: height/2
             opacity: focus ? 1 : 0.2
             anchors.verticalCenter: parent.verticalCenter
-            onFocusChanged: {
-                sfxNav.play()
-                if (focus)
-                    mainList.currentIndex = -1;
-                else
-                    mainList.currentIndex = 0;
-            }
-
-            Keys.onDownPressed: mainList.focus = true;
-            Keys.onPressed: {
-                // Accept
-                if (api.keys.isAccept(event) && !event.isAutoRepeat) {
-                    event.accepted = true;       
-                }
-                // Back
-                if (api.keys.isCancel(event) && !event.isAutoRepeat) {
-                    event.accepted = true;
-                    mainList.focus = true;
-                }
-            }
+          
             // Mouse/touch functionality
             MouseArea {
                 anchors.fill: parent
-                hoverEnabled: settings.MouseHover == "Yes"
-                onEntered: twitterbutton.focus = true;
-                onExited: twitterbutton.focus = false;
                 onClicked: twitterScreen();
-
             }
+
         }
 		
 		
@@ -580,9 +464,6 @@ id: root
         }
 		
 
-		
-		
-		
     }
 
     // Using an object model to build the list
