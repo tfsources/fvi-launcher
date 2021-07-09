@@ -888,6 +888,11 @@ id: root
             event.accepted = true;
             settingsScreen();
         }
+		// Information
+	     if (api.keys.isDetails(event) && !event.isAutoRepeat) {
+            event.accepted = true;
+            informationScreen();
+        }	
     }
 	
 	
@@ -896,6 +901,10 @@ id: root
     ListModel {
         id: gridviewHelpModel
 
+        ListElement {
+            name: "Information"
+            button: "details"
+        }
         ListElement {
             name: "Settings"
             button: "filters"

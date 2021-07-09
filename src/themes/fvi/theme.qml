@@ -267,7 +267,7 @@ id: root
 	
 	    function chatScreen() {
         sfxAccept.play();
-        Qt.openUrlExternally("https://discord.gg/VY95TKZ");
+        Qt.openUrlExternally("https://warfork.com/discord");
     }
 	
     function websiteScreen() {
@@ -287,9 +287,15 @@ id: root
 	
     function twitterScreen() {
         sfxAccept.play();
+		
         Qt.openUrlExternally("https://twitter.com/warforksocial");
     }	
 
+	function informationScreen() {
+        sfxAccept.play();
+		Qt.openUrlExternally("https://warfork.com/index.php?skin=" + settings.Skin);
+    }
+	
     function facebookScreen() {
         sfxAccept.play();
         Qt.openUrlExternally("https://facebook.com");
