@@ -25,6 +25,21 @@ id: root
     property var game: currentGame
     focus: true
 
+	property string savedText : if (settings.Skin == 1)
+        return "Amber";
+            else if (settings.Skin == 2)
+        return "Buck";
+			else if (settings.Skin == 3)
+        return "Rufus";
+			else if (settings.Skin == 4)
+        return "Serena";
+			else if (settings.Skin == 5)
+        return "Hamilton";
+			else if (settings.Skin == 6)
+        return "Leon";
+            else
+        return "Warfork";
+			
     // Background
     Image {
     id: screenshot
@@ -115,6 +130,45 @@ id: root
         }
     }
     
+
+    Item {
+    id: container2
+
+        width: launchText2.width + vpx(480)
+        height: launchText2.height + vpx(50)
+
+        property real centerOffset: logo.paintedHeight/2
+        
+        anchors {
+            topMargin: centerOffset + vpx(50)
+            horizontalCenter: logo.horizontalCenter
+        }
+        
+        //color: theme.secondary
+
+        Rectangle {
+        id: regborder2
+
+            anchors.fill: parent
+            color: "black"
+            border.width: vpx(1)
+            border.color: "white"
+            opacity: 0.2
+        }
+		
+        Text {
+        id: launchText2
+
+            text: savedText
+            width: contentWidth
+            height: contentHeight
+            font.family: titleFont.name
+            font.pixelSize: vpx(24)
+            color: "#FFFF00"
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.verticalCenter: parent.verticalCenter
+        }
+    }
 
     // Helpbar buttons
     ListModel {
