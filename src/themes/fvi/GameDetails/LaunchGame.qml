@@ -30,24 +30,8 @@ id: root
     id: screenshot
 
         anchors.fill: parent
+        source: "../assets/images/bg_" + settings.Skin + ".jpg"
         asynchronous: true
-        property int randoScreenshotNumber: {
-            if (game && settings.GameRandomBackground === "Yes")
-                return Math.floor(Math.random() * game.assets.screenshotList.length);
-            else
-                return 0;
-        }
-        property int randoFanartNumber: {
-            if (game && settings.GameRandomBackground === "Yes")
-                return Math.floor(Math.random() * game.assets.backgroundList.length);
-            else
-                return 0;
-        }
-
-        property var randoScreenshot: game ? game.assets.screenshotList[randoScreenshotNumber] : ""
-        property var randoFanart: game ? game.assets.backgroundList[randoFanartNumber] : ""
-        property var actualBackground: (settings.GameBackground === "Screenshot") ? randoScreenshot : Utils.fanArt(game) || randoFanart;
-        source: actualBackground || ""
         fillMode: Image.PreserveAspectCrop
         smooth: true
         Behavior on opacity { NumberAnimation { duration: 500 } }
