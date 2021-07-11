@@ -110,6 +110,11 @@ id: root
 
     property bool ftue: featuredCollection.games.count == 0
 
+	property string videoBannerFile: if (settings.PlayBannerVideo == "Yes")
+        return "fvi";
+            else
+        return "placeholder";
+		
     function storeIndices(secondary) {
         storedHomePrimaryIndex = mainList.currentIndex;
         if (secondary)
@@ -172,7 +177,7 @@ id: root
         id: videocomponent
 
             anchors.fill: parent
-            source: "../assets/video/fvi.mp4"
+			source: "../assets/video/" + videoBannerFile + ".mp4"
             fillMode: VideoOutput.PreserveAspectCrop
             muted: true
             loops: MediaPlayer.Infinite
@@ -237,7 +242,6 @@ id: root
             visible: !ftueContainer.visible
         }
 
-
 		// settings button
         Rectangle {
         id: settingsbutton
@@ -300,7 +304,7 @@ id: root
 
             width: height
             height: vpx(40)
-            anchors { left: parent.left; leftMargin: vpx(20) }
+            anchors { left: parent.left; leftMargin: globalMargin + vpx(0) }
             color: focus ? theme.accent : "white"
             radius: height/2
             opacity: focus ? 1 : 0.2
@@ -332,7 +336,7 @@ id: root
 
             width: height
             height: vpx(40)
-            anchors { left: parent.left; leftMargin: vpx(70) }
+            anchors { left: parent.left; leftMargin: globalMargin + vpx(50) }
             color: focus ? theme.accent : "white"
             radius: height/2
             opacity: focus ? 1 : 0.2
@@ -367,7 +371,7 @@ id: root
 
             width: height
             height: vpx(40)
-            anchors { left: parent.left; leftMargin: vpx(120) }
+            anchors { left: parent.left; leftMargin: globalMargin + vpx(100) }
             color: focus ? theme.accent : "white"
             radius: height/2
             opacity: focus ? 1 : 0.2
@@ -402,7 +406,7 @@ id: root
 
             width: height
             height: vpx(40)
-            anchors { left: parent.left; leftMargin: vpx(170) }
+            anchors { left: parent.left; leftMargin: globalMargin + vpx(150) }
             color: focus ? theme.accent : "white"
             radius: height/2
             opacity: focus ? 1 : 0.2
@@ -436,7 +440,7 @@ id: root
 
             width: height
             height: vpx(40)
-            anchors { left: parent.left; leftMargin: vpx(220) }
+            anchors { left: parent.left; leftMargin: globalMargin + vpx(200) }
             color: focus ? theme.accent : "white"
             radius: height/2
             opacity: focus ? 1 : 0.2

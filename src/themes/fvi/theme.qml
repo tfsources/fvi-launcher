@@ -48,6 +48,7 @@ id: root
             HideLogo:                      api.memory.has("Hide logo when thumbnail video plays") ? api.memory.get("Hide logo when thumbnail video plays") : "No",
             HideButtonHelp:                api.memory.has("Hide button help") ? api.memory.get("Hide button help") : "No",
             PlaySoundEffects:              api.memory.has("Play sound effects") ? api.memory.get("Play sound effects") : "No",
+			PlayBannerVideo:       		   api.memory.has("Play banner video") ? api.memory.get("Play banner video") : "No",
             MouseHover:                    api.memory.has("Enable mouse hover") ? api.memory.get("Enable mouse hover") : "No",
             AlwaysShowTitles:              api.memory.has("Always show titles") ? api.memory.get("Always show titles") : "No",
             AnimateHighlight:              api.memory.has("Animate highlight") ? api.memory.get("Animate highlight") : "No",
@@ -268,37 +269,37 @@ id: root
 	    function chatScreen() {
         sfxAccept.play();
         Qt.openUrlExternally("https://warfork.com/discord");
+		root.state = "showcasescreen";
     }
 	
     function websiteScreen() {
         sfxAccept.play();
         Qt.openUrlExternally("https://warfork.com");
+		root.state = "showcasescreen";
     }	
 
     function wikiScreen() {
         sfxAccept.play();
         Qt.openUrlExternally("https://warforkwiki.com");
+		root.state = "showcasescreen";
     }
 	
 	function eventsScreen() {
         sfxAccept.play();
         Qt.openUrlExternally("https://steamcommunity.com/app/671610/eventcomments");
+		root.state = "showcasescreen";
     }
 	
     function twitterScreen() {
         sfxAccept.play();
-		
         Qt.openUrlExternally("https://twitter.com/warforksocial");
+		root.state = "showcasescreen";
     }	
 
 	function informationScreen() {
         sfxAccept.play();
 		Qt.openUrlExternally("https://warfork.com/index.php?skin=" + settings.Skin);
-    }
-	
-    function facebookScreen() {
-        sfxAccept.play();
-        Qt.openUrlExternally("https://facebook.com");
+		root.state = "showcasescreen";
     }
 
     function settingsScreen() {
@@ -463,7 +464,6 @@ id: root
 
         SettingsScreen { focus: true }
     }
-
     
     // Button help
     property var currentHelpbarModel

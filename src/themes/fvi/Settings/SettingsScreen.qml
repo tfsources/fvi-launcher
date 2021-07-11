@@ -59,6 +59,10 @@ id: root
             settingName: "Play sound effects"
             setting: "Yes,No"
         }
+		ListElement {
+            settingName: "Play banner video"
+            setting: "Yes,No"
+        }
     }
 
     property var generalPage: {
