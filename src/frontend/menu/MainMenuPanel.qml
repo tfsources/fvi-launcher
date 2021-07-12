@@ -64,7 +64,7 @@ FocusScope {
 
         PrimaryMenuItem {
             id: mbHelp
-            text: qsTr("Help") + api.tr
+            text: qsTr("About") + api.tr
             onActivated: {
                 focus = true;
                 root.showHelpScreen();
@@ -92,19 +92,6 @@ FocusScope {
                     mbHelp.focus = true;
                 }
             }
-
-            entries: [
-                SecondaryMenuItem {
-                    id: mbQuitExit
-                    text: qsTr("Exit FVI") + api.tr
-                    onActivated: requestQuit()
-
-                    readonly property bool callable: api.internal.meta.allowAppClose
-                    enabled: callable
-                    visible: callable
-
-                }
-            ]
         }
     }
 
