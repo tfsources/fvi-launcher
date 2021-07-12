@@ -8,6 +8,8 @@ import "../utils.js" as Utils
 
 FocusScope {
 id: root
+
+    property string unlocksearch
   
     Item {
     id: unlockBar
@@ -48,6 +50,17 @@ id: root
                 color: theme.text
                 font.family: bodyFont.name
                 font.pixelSize: vpx(24)
+                maximumLength: 50
+                onTextChanged: { 
+                unlocksearch = unlockBarInput.text;
+                if (unlocksearch == "warfork") { api.memory.set('Skin', "1"); showcaseScreen(); } 
+                if (unlocksearch == "amber") { api.memory.set('Skin', 2); showcaseScreen(); } 
+                if (unlocksearch == "buck") { api.memory.set('Skin', 3); showcaseScreen(); } 
+                if (unlocksearch == "rufus") { api.memory.set('Skin', 4); showcaseScreen(); } 
+                if (unlocksearch == "serena") { api.memory.set('Skin', 5); showcaseScreen(); } 
+                if (unlocksearch == "hamilton") { api.memory.set('Skin', 6); showcaseScreen(); } 
+                if (unlocksearch == "leon") { api.memory.set('Skin', 7); showcaseScreen(); } 
+                }
 
             }
 
