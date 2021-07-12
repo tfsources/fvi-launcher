@@ -46,13 +46,14 @@ id: root
                     bottom: parent.bottom;
                     margins: vpx(10)
                 }
+                validator: RegExpValidator { regExp: /[0-9a-zA-Z]+/ }
                 verticalAlignment: Text.AlignVCenter
                 color: theme.text
                 font.family: bodyFont.name
                 font.pixelSize: vpx(24)
                 maximumLength: 50
                 onTextChanged: { 
-                unlocksearch = unlockBarInput.text;
+                unlocksearch = unlockBarInput.text.toLowerCase();
                 if (unlocksearch == "warfork") { api.memory.set('Skin', "1"); showcaseScreen(); } 
                 if (unlocksearch == "amber") { api.memory.set('Skin', 2); showcaseScreen(); } 
                 if (unlocksearch == "buck") { api.memory.set('Skin', 3); showcaseScreen(); } 
