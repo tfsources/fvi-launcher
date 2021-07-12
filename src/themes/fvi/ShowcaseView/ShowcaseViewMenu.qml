@@ -298,6 +298,65 @@ id: root
         }
 
 		
+		
+		
+		// unlock button
+        Rectangle {
+        id: unlockbutton
+
+            width: height
+            height: vpx(40)
+            anchors { right: parent.right; rightMargin: globalMargin + vpx(50) }
+            color: focus ? theme.accent : "white"
+            radius: height/2
+            opacity: focus ? 1 : 0.2
+            anchors.verticalCenter: parent.verticalCenter
+            onFocusChanged: {
+                sfxNav.play()
+                if (focus)
+                    mainList.currentIndex = -1;
+                else
+                    mainList.currentIndex = 0;
+            }
+
+            Keys.onDownPressed: mainList.focus = true;
+            Keys.onPressed: {
+                // Accept
+                if (api.keys.isAccept(event) && !event.isAutoRepeat) {
+                    event.accepted = true;
+                    unlockScreen();            
+                }
+                // Back
+                if (api.keys.isCancel(event) && !event.isAutoRepeat) {
+                    event.accepted = true;
+                    mainList.focus = true;
+                }
+            }
+            // Mouse/touch functionality
+            MouseArea {
+                anchors.fill: parent
+                hoverEnabled: settings.MouseHover == "Yes"
+                onEntered: unlockbutton.focus = true;
+                onExited: unlockbutton.focus = false;
+                onClicked: unlockScreen();
+            }
+        }
+	
+		
+        Image {
+        id: unlockicon
+
+            width: height
+            height: vpx(24)
+            anchors.centerIn: unlockbutton
+            smooth: true
+            asynchronous: true
+            source: "../assets/images/lock.png"
+            opacity: root.focus ? 0.8 : 0.5
+        }
+		
+		
+		
 		// chat button
 		    Rectangle {
         id: chatbutton
@@ -893,17 +952,15 @@ id: root
             settingsScreen();
         }
 		// Information
-	     if (api.keys.isDetails(event) && !event.isAutoRepeat) {
+	     if (api.keys.isDetails(event) && !event.isAutoRepeat && settings.Skin > 1) {
             event.accepted = true;
             informationScreen();
         }	
     }
-	
-	
 
-    // Helpbar buttons
+    // Unlocked
     ListModel {
-        id: gridviewHelpModel
+        id: gridviewHelpModelUnlocked
 
         ListElement {
             name: "Information"
@@ -918,10 +975,31 @@ id: root
             button: "accept"
         }
     }
+	
+	    // Locked
+    ListModel {
+        id: gridviewHelpModelLocked
 
+        ListElement {
+            name: "Settings"
+            button: "filters"
+        }
+        ListElement {
+            name: "Select"
+            button: "accept"
+        }
+    }
+	
     onFocusChanged: { 
+		    if (settings.Skin > 1) {
         if (focus)
-            currentHelpbarModel = gridviewHelpModel;
+            currentHelpbarModel = gridviewHelpModelUnlocked;
+			}	
+			else {
+			if (focus)
+            currentHelpbarModel = gridviewHelpModelLocked;
+			}
+			
     }
 
 }

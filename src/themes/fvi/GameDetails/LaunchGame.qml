@@ -26,32 +26,64 @@ id: root
     focus: true
 
 	property string savedText : if (settings.Skin == 1)
+        return "Warfork";
+			else if (settings.Skin == 2)
         return "Amber";
-            else if (settings.Skin == 2)
+            else if (settings.Skin == 3)
         return "Buck";
-			else if (settings.Skin == 3)
-        return "Rufus";
 			else if (settings.Skin == 4)
-        return "Serena";
+        return "Rufus";
 			else if (settings.Skin == 5)
-        return "Hamilton";
+        return "Serena";
 			else if (settings.Skin == 6)
+        return "Hamilton";
+			else if (settings.Skin == 7)
         return "Leon";
             else
         return "Warfork";
+
 			
     // Background
     Image {
     id: screenshot
 
         anchors.fill: parent
-        source: "../assets/images/bg_" + settings.Skin + ".jpg"
+        source: "../assets/images/bg_" + settings.Skin + ".jpg"       
         asynchronous: true
         fillMode: Image.PreserveAspectCrop
         smooth: true
         Behavior on opacity { NumberAnimation { duration: 500 } }
-    }
+		visible: settings.Skin != 1
+	}
+	
+	    Image {
+    id: screenshot2
 
+		property int randoScreenshotNumber: {
+            if (game && settings.GameRandomBackground === "Yes")
+                return Math.floor(Math.random() * game.assets.screenshotList.length);
+            else
+                return 0;
+        }
+        property int randoFanartNumber: {
+            if (game && settings.GameRandomBackground === "Yes")
+                return Math.floor(Math.random() * game.assets.backgroundList.length);
+            else
+                return 0;
+        }
+
+        property var randoScreenshot: game ? game.assets.screenshotList[randoScreenshotNumber] : ""
+        property var randoFanart: game ? game.assets.backgroundList[randoFanartNumber] : ""
+        property var actualBackground: (settings.GameBackground === "Screenshot") ? randoScreenshot : Utils.fanArt(game) || randoFanart;
+        source: actualBackground || ""	
+        anchors.fill: parent
+        asynchronous: true
+        fillMode: Image.PreserveAspectCrop
+        smooth: true
+        Behavior on opacity { NumberAnimation { duration: 500 } }
+		visible: settings.Skin == 1
+	}
+	
     // Scanlines
     Image {
     id: scanlines
@@ -133,7 +165,7 @@ id: root
 
     Item {
     id: container2
-
+	
         width: launchText2.width + vpx(480)
         height: launchText2.height + vpx(50)
 
@@ -154,11 +186,12 @@ id: root
             border.width: vpx(1)
             border.color: "white"
             opacity: 0.2
+			visible: settings.Skin > 1			
         }
 		
         Text {
         id: launchText2
-
+		
             text: savedText
             width: contentWidth
             height: contentHeight
@@ -167,6 +200,8 @@ id: root
             color: "#FFFF00"
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
+			visible: settings.Skin > 1
+
         }
     }
 

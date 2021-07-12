@@ -63,6 +63,10 @@ id: root
             settingName: "Play banner video"
             setting: "Yes,No"
         }
+		ListElement {
+            settingName: "Light Mode (work in progress)"
+            setting: "No,Yes"
+        }
     }
 
     property var generalPage: {
@@ -84,7 +88,7 @@ id: root
         }
           ListElement {
             settingName: "Skin"
-            setting: "1,2,3,4,5,6"
+            setting: "1,2,3,4,5,6,7"
         }
     }
 

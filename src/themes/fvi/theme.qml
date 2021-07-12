@@ -69,12 +69,13 @@ id: root
             ShowcaseCollection5_Thumbnail: api.memory.has("Collection 5 - Thumbnail") ? api.memory.get("Collection 5 - Thumbnail") : "Wide",
             WideRatio:                     api.memory.has("Wide - Ratio") ? api.memory.get("Wide - Ratio") : "0.64",
             TallRatio:                     api.memory.has("Tall - Ratio") ? api.memory.get("Tall - Ratio") : "0.66",
-            Skin:                          api.memory.has("Skin") ? api.memory.get("Skin") : "1"
+            Skin:                          api.memory.has("Skin") ? api.memory.get("Skin") : "1",
+			LightMode:              	       api.memory.has("Light Mode (work in progress)") ? api.memory.get("Light Mode (work in progress)") : "No"
             
         }
     }
 
-    // Skin: 1. Amber, 2. Buck, 3. Rufus, 4. Serena, 5. Hamilton, 6. Leon
+    // Skin: 1. Warfork 2. Amber, 3. Buck, 4. Rufus, 5. Serena, 6. Hamilton, 7. Leon
     
     // Collections
     property int currentCollectionIndex: 0
@@ -188,18 +189,19 @@ id: root
         api.memory.unset('To Game');
     }
 
-    // Theme settings
+
+	    // Theme settings
     property var theme: {
-        return {
-            main:           "#0c1d2c",
-            secondary:      "#20282f",
-            accent:         "#eb8c8a",
-            highlight:      "#eb8c8a",
-            text:           "#ececec",
-            button:         "#eb8c8a",
-            gradientstart:  "#000d111d",
-            gradientend:    "#FF0d111d"
-        }
+            return {
+            main:           (settings.LightMode === "No") ? "#0c1d2c" : "#ffffff",
+            secondary:      (settings.LightMode === "No") ? "#20282f" : "#202a44",
+            accent:         (settings.LightMode === "No") ? "#eb8c8a" : "#eb8c8a",
+            highlight:      (settings.LightMode === "No") ? "#eb8c8a" : "#eb8c8a",
+            text:           (settings.LightMode === "No") ? "#ececec" : "#212121",
+            button:         (settings.LightMode === "No") ? "#eb8c8a" : "#eb8c8a",
+			gradientstart:  (settings.LightMode === "No") ? "#000d111d" : "#000d111d",
+            gradientend:    (settings.LightMode === "No") ? "#ff0d111d" : "#ff0d111d"
+            }	
     }
 
     property real globalMargin: vpx(30)
@@ -222,6 +224,9 @@ id: root
         },
         State {
             name: "settingsscreen";
+        },
+		State {
+            name: "unlockscreen";
         },
         State {
             name: "launchgamescreen";
@@ -306,6 +311,12 @@ id: root
         sfxAccept.play();
         lastState.push(state);
         root.state = "settingsscreen";
+    }
+	
+	function unlockScreen() {
+        sfxAccept.play();
+        lastState.push(state);
+        root.state = "unlockscreen";
     }
 
     function launchGameScreen() {
@@ -414,6 +425,19 @@ id: root
     }
 
     Loader  {
+    id: unlockloader
+
+        focus: (root.state === "unlockscreen")
+        active: opacity !== 0
+        opacity: focus ? 1 : 0
+        Behavior on opacity { PropertyAnimation { duration: transitionTime } }
+
+        anchors.fill: parent
+        sourceComponent: unlockview
+        asynchronous: true
+    }
+	
+    Loader  {
     id: settingsloader
 
         focus: (root.state === "settingsscreen")
@@ -460,11 +484,17 @@ id: root
     }
 
     Component {
+    id: unlockview
+
+        UnlockScreen { focus: true }
+    }
+
+    Component {
     id: settingsview
 
         SettingsScreen { focus: true }
     }
-    
+    	
     // Button help
     property var currentHelpbarModel
     ButtonHelpBar {
