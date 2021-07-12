@@ -95,28 +95,6 @@ FocusScope {
 
             entries: [
                 SecondaryMenuItem {
-                    id: mbQuitShutdown
-                    text: qsTr("Shutdown") + api.tr
-                    onActivated: requestShutdown()
-
-                    readonly property bool callable: api.internal.meta.allowShutdown
-                    enabled: callable
-                    visible: callable
-
-                    KeyNavigation.down: mbQuitReboot
-                },
-                SecondaryMenuItem {
-                    id: mbQuitReboot
-                    text: qsTr("Reboot") + api.tr
-                    onActivated: requestReboot()
-
-                    readonly property bool callable: api.internal.meta.allowReboot
-                    enabled: callable
-                    visible: callable
-
-                    KeyNavigation.down: mbQuitExit
-                },
-                SecondaryMenuItem {
                     id: mbQuitExit
                     text: qsTr("Exit FVI") + api.tr
                     onActivated: requestQuit()
@@ -125,7 +103,6 @@ FocusScope {
                     enabled: callable
                     visible: callable
 
-                    KeyNavigation.down: mbQuitShutdown
                 }
             ]
         }

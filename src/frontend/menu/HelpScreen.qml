@@ -88,7 +88,7 @@ MenuScreen {
                     text: qsTr("Source Code") + api.tr
                 }
                 Text {
-                    text: qsTr("You can find the source code on the following address:")
+                    text: qsTr("You can find the Source Code on the following address:")
                         + api.tr
                     color: "#eee"
                     font.pixelSize: bodyFontSize
