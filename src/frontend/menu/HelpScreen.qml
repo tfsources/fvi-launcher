@@ -85,10 +85,10 @@ MenuScreen {
                 width: parent.width
 
                 SectionTitle {
-                    text: qsTr("Help") + api.tr
+                    text: qsTr("Source Code") + api.tr
                 }
                 Text {
-                    text: qsTr("You can find the documentation and user guide on the following address:")
+                    text: qsTr("You can find the source code on the following address:")
                         + api.tr
                     color: "#eee"
                     font.pixelSize: bodyFontSize
@@ -97,7 +97,7 @@ MenuScreen {
                     padding: bodyFontSize
                 }
                 QrBox {
-                    url: "warforkwiki.com"
+                    url: "github.com/TeamForbiddenLLC/fvi-launcher"
                     image: "qrc:/frontend/assets/qr-docs.png"
                     anchors.horizontalCenter: parent.horizontalCenter
                 }
