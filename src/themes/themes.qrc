@@ -43,37 +43,6 @@
 		<file>fvi/assets/images/settings.png</file>
 		<file>fvi/assets/images/twitter.png</file>
 		<file>fvi/assets/images/lock.png</file>
-        <file>fvi/assets/images/controller/0.svg</file>
-        <file>fvi/assets/images/controller/right.svg</file>
-        <file>fvi/assets/images/controller/input_DPAD-L.png</file>
-        <file>fvi/assets/images/controller/1.svg</file>
-        <file>fvi/assets/images/controller/input_DPAD-D.png</file>
-        <file>fvi/assets/images/controller/0.png</file>
-        <file>fvi/assets/images/controller/input_STCK-D.png</file>
-        <file>fvi/assets/images/controller/5.png</file>
-        <file>fvi/assets/images/controller/input_TURBO.png</file>
-        <file>fvi/assets/images/controller/7.png</file>
-        <file>fvi/assets/images/controller/3.png</file>
-        <file>fvi/assets/images/controller/input_STCK-L.png</file>
-        <file>fvi/assets/images/controller/left.svg</file>
-        <file>fvi/assets/images/controller/controllerDpadDirections.svg</file>
-        <file>fvi/assets/images/controller/10.png</file>
-        <file>fvi/assets/images/controller/up.svg</file>
-        <file>fvi/assets/images/controller/8.png</file>
-        <file>fvi/assets/images/controller/down.svg</file>
-        <file>fvi/assets/images/controller/input_MOUSE.png</file>
-        <file>fvi/assets/images/controller/1.png</file>
-        <file>fvi/assets/images/controller/input_DPAD-U.png</file>
-        <file>fvi/assets/images/controller/input_STCK-R.png</file>
-        <file>fvi/assets/images/controller/input_DPAD-R.png</file>
-        <file>fvi/assets/images/controller/6.png</file>
-        <file>fvi/assets/images/controller/2.svg</file>
-        <file>fvi/assets/images/controller/11.png</file>
-        <file>fvi/assets/images/controller/4.png</file>
-        <file>fvi/assets/images/controller/input_STCK-U.png</file>
-        <file>fvi/assets/images/controller/3.svg</file>
-        <file>fvi/assets/images/controller/9.png</file>
-        <file>fvi/assets/images/controller/2.png</file>
 		<file>fvi/assets/images/keyboard/return.png</file>
 		<file>fvi/assets/images/keyboard/backspace.png</file>
 		<file>fvi/assets/images/keyboard/enter.png</file>

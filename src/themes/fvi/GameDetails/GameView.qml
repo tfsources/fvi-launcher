@@ -469,8 +469,9 @@ id: root
             onHighlighted: { menu.currentIndex = ObjectModel.index; content.currentIndex = 0; }
             onActivated: 
                 if (selected) {
-                    sfxAccept.play();
-                    launchGame(game);
+                    if (settings.Skin == 1 && game.collections.get(0).name != "COMPLETE"){ sfxAccept.play(); launchGame(game); }
+                    if (settings.Skin == 1 && game.collections.get(0).name == "COMPLETE"){ sfxAccept.play(); unlockScreen(); }
+                    if (settings.Skin != 1){ sfxAccept.play(); launchGame(game); }
                 } else {
                     sfxNav.play();
                     menu.currentIndex = ObjectModel.index;
