@@ -193,20 +193,18 @@ id: root
     }
 
 
-	    // Theme settings
+ // Theme settings
     property var theme: {
-            return {
-
-              main:           "#0c1d2c",
-              secondary:      "#20282f",
-              accent:          "#eb8c8a",
-              highlight:       "#eb8c8a",
-              text:            "#ececec",
-              button:          "#eb8c8a",
-	   		  gradientstart:  "#000d11",
-              gradientend:    "#ff0d11"
-
-            }	
+        return {
+            main:           "#0c1d2c",
+            secondary:      "#20282f",
+            accent:         "#eb8c8a",
+            highlight:      "#eb8c8a",
+            text:           "#ececec",
+            button:         "#eb8c8a",
+            gradientstart:  "#000d111d",
+            gradientend:    "#FF0d111d"
+        }
     }
 
     property real globalMargin: vpx(30)
