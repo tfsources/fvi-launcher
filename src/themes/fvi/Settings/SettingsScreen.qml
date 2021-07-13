@@ -64,7 +64,7 @@ id: root
             setting: "Yes,No"
         }
 		ListElement {
-            settingName: "Show all collections"
+            settingName: "Disable unlocked logos"
             setting: "No,Yes"
         }
 		ListElement {

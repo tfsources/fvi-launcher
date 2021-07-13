@@ -69,9 +69,8 @@ id: root
             ShowcaseCollection5_Thumbnail: api.memory.has("Collection 5 - Thumbnail") ? api.memory.get("Collection 5 - Thumbnail") : "Wide",
             WideRatio:                     api.memory.has("Wide - Ratio") ? api.memory.get("Wide - Ratio") : "0.64",
             TallRatio:                     api.memory.has("Tall - Ratio") ? api.memory.get("Tall - Ratio") : "0.66",
-            //	LightMode:              	       api.memory.has("Light Mode (work in progress)") ? api.memory.get("Light Mode (work in progress)") : "No",
             Skin:                          api.memory.has("Skin") ? api.memory.get("Skin") : "1",
-            ShowAllCollections:            api.memory.has("Show all collections") ? api.memory.get("Show all collections") : "No",
+            DisableUnlockedLogos: 	   	   api.memory.has("Disable unlocked logos") ? api.memory.get("Disable unlocked logos") : "No",
             DisableGameCloseBackgrounds:   api.memory.has("Disable unlocked backgrounds") ? api.memory.get("Disable unlocked backgrounds") : "No"
         
         }

@@ -110,6 +110,11 @@ id: root
 
     property bool ftue: featuredCollection.games.count == 0
 
+	property string skinLogoOption: if (settings.DisableUnlockedLogos == "Yes")
+        return "1";
+            else
+        return settings.Skin;
+	
 	property string videoBannerFile: if (settings.PlayBannerVideo == "Yes")
         return "fvi";
             else
@@ -199,7 +204,7 @@ id: root
 
             width: vpx(500)
             anchors { left: parent.left; leftMargin: globalMargin }
-            source: "../assets/images/" + settings.Skin + ".png";
+            source: "../assets/images/" + skinLogoOption + ".png";
             sourceSize: Qt.size(parent.width, parent.height)
             fillMode: Image.PreserveAspectFit
             smooth: true
@@ -952,7 +957,7 @@ id: root
             settingsScreen();
         }
 		// Information
-	     if (api.keys.isDetails(event) && !event.isAutoRepeat && settings.Skin > 1) {
+	     if (api.keys.isDetails(event) && !event.isAutoRepeat && skinLogoOption > 1) {
             event.accepted = true;
             informationScreen();
         }	
@@ -991,7 +996,7 @@ id: root
     }
 	
     onFocusChanged: { 
-		    if (settings.Skin > 1) {
+		    if (skinLogoOption > 1) {
         if (focus)
             currentHelpbarModel = gridviewHelpModelUnlocked;
 			}	
