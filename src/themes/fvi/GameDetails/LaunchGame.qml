@@ -53,7 +53,7 @@ id: root
         fillMode: Image.PreserveAspectCrop
         smooth: true
         Behavior on opacity { NumberAnimation { duration: 500 } }
-		visible: settings.Skin != 1
+		visible: settings.Skin != 1 && settings.DisableGameCloseBackgrounds === "No"
 	}
 	
 	    Image {
@@ -81,7 +81,7 @@ id: root
         fillMode: Image.PreserveAspectCrop
         smooth: true
         Behavior on opacity { NumberAnimation { duration: 500 } }
-		visible: settings.Skin == 1
+		visible: settings.Skin == 1 || settings.DisableGameCloseBackgrounds === "Yes"
 	}
 	
     // Scanlines
@@ -186,7 +186,7 @@ id: root
             border.width: vpx(1)
             border.color: "white"
             opacity: 0.2
-			visible: settings.Skin > 1			
+			visible: settings.Skin > 1 && settings.DisableGameCloseBackgrounds === "No"			
         }
 		
         Text {
@@ -200,7 +200,7 @@ id: root
             color: "#FFFF00"
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
-			visible: settings.Skin > 1
+			visible: settings.Skin > 1 && settings.DisableGameCloseBackgrounds === "No"
 
         }
     }

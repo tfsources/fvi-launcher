@@ -63,10 +63,15 @@ id: root
             settingName: "Play banner video"
             setting: "Yes,No"
         }
-        /*ListElement {
-            settingName: "Light Mode (work in progress)"
+		ListElement {
+            settingName: "Show all collections"
             setting: "No,Yes"
-        }*/
+        }
+		ListElement {
+            settingName: "Disable unlocked backgrounds"
+            setting: "No,Yes"
+        }
+
     }
 
     property var generalPage: {

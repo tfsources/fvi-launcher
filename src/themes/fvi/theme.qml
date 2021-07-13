@@ -69,14 +69,17 @@ id: root
             ShowcaseCollection5_Thumbnail: api.memory.has("Collection 5 - Thumbnail") ? api.memory.get("Collection 5 - Thumbnail") : "Wide",
             WideRatio:                     api.memory.has("Wide - Ratio") ? api.memory.get("Wide - Ratio") : "0.64",
             TallRatio:                     api.memory.has("Tall - Ratio") ? api.memory.get("Tall - Ratio") : "0.66",
+            //	LightMode:              	       api.memory.has("Light Mode (work in progress)") ? api.memory.get("Light Mode (work in progress)") : "No",
             Skin:                          api.memory.has("Skin") ? api.memory.get("Skin") : "1",
-			LightMode:              	       api.memory.has("Light Mode (work in progress)") ? api.memory.get("Light Mode (work in progress)") : "No"
-            
+            ShowAllCollections:            api.memory.has("Show all collections") ? api.memory.get("Show all collections") : "No",
+            DisableGameCloseBackgrounds:   api.memory.has("Disable unlocked backgrounds") ? api.memory.get("Disable unlocked backgrounds") : "No"
+        
         }
     }
 
     // Skin: 1. Warfork 2. Amber, 3. Buck, 4. Rufus, 5. Serena, 6. Hamilton, 7. Leon
-    
+    property var skininfo
+
     // Collections
     property int currentCollectionIndex: 0
     property int currentGameIndex: 0
@@ -193,14 +196,16 @@ id: root
 	    // Theme settings
     property var theme: {
             return {
-            main:           (settings.LightMode === "No") ? "#0c1d2c" : "#ffffff",
-            secondary:      (settings.LightMode === "No") ? "#20282f" : "#202a44",
-            accent:         (settings.LightMode === "No") ? "#eb8c8a" : "#eb8c8a",
-            highlight:      (settings.LightMode === "No") ? "#eb8c8a" : "#eb8c8a",
-            text:           (settings.LightMode === "No") ? "#ececec" : "#212121",
-            button:         (settings.LightMode === "No") ? "#eb8c8a" : "#eb8c8a",
-			gradientstart:  (settings.LightMode === "No") ? "#000d111d" : "#000d111d",
-            gradientend:    (settings.LightMode === "No") ? "#ff0d111d" : "#ff0d111d"
+
+              main:           "#0c1d2c",
+              secondary:      "#20282f",
+              accent:          "#eb8c8a",
+              highlight:       "#eb8c8a",
+              text:            "#ececec",
+              button:          "#eb8c8a",
+	   		  gradientstart:  "#000d11",
+              gradientend:    "#ff0d11"
+
             }	
     }
 
@@ -302,8 +307,16 @@ id: root
     }	
 
 	function informationScreen() {
+
+       if (settings.Skin == 2){ skininfo = "amber" }
+       if (settings.Skin == 3){ skininfo = "buck" }
+       if (settings.Skin == 4){ skininfo = "rufus" }
+       if (settings.Skin == 5){ skininfo = "serena" }
+       if (settings.Skin == 6){ skininfo = "hamilton" }
+       if (settings.Skin == 7){ skininfo = "leon" }
+
         sfxAccept.play();
-		Qt.openUrlExternally("https://warfork.com/index.php?skin=" + settings.Skin);
+		Qt.openUrlExternally("https://warfork.com/index.php?skin=" + skininfo);
 		root.state = "showcasescreen";
     }
 
