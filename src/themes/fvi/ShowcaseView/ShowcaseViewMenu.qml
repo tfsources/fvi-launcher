@@ -239,7 +239,7 @@ id: root
             width: vpx(150)
             anchors { left: parent.left; leftMargin: globalMargin }
             source: "../assets/images/warfork-logo.png"
-            sourceSize: Qt.size(parent.width, parent.height)
+            sourceSize { width: 350; height: 250}
             fillMode: Image.PreserveAspectFit
             smooth: true
             asynchronous: true
@@ -712,7 +712,7 @@ id: root
                     anchors.centerIn: parent
                     anchors.margins: vpx(15)
                     source: "../assets/images/logospng/" + Utils.processPlatformName(modelData.shortName) + ".png"
-                    sourceSize: Qt.size(collectionlogo.width, collectionlogo.height)
+					sourceSize { width: 128; height: 64 }
                     fillMode: Image.PreserveAspectFit
                     asynchronous: true
                     smooth: true
