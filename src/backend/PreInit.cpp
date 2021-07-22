@@ -28,10 +28,6 @@
 #include "model/keys/Key.h"
 #include "utils/FolderListModel.h"
 #include "steamshim_child.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include <unistd.h>
 
 #include "QtQmlTricks/QQmlObjectListModel.h"
 #include "SortFilterProxyModel/qqmlsortfilterproxymodel.h"
